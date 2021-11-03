@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             
+             Shell.NavBarIsVisible="False"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             xmlns:vm="clr-namespace:SupervisorMaster.ViewModels"
+             xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:icon="clr-namespace:SupervisorMaster.Helpers"
+             
+             x:Class="SupervisorMaster.Views.SettingsPage">
+    <ContentPage.BindingContext>
+        <vm:SettingsViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Behaviors>
+        <xct:EventToCommandBehavior
+                EventName="Appearing"
+                Command="{Binding PageAppearingCommand}" />
+    </ContentPage.Behaviors>
+    <ContentPage.Content>
+        <Grid RowDefinitions="auto, *">
+            <!--#region User -->
+            <Frame Padding="0" CornerRadius="20"
+                   HasShadow="true" IsClippedToBounds="True" 
+                   VerticalOptions="Start" HeightRequest="210"
+                   BackgroundColor="{StaticResource SupperGray}"/>
+            <Frame Padding="0"
+                   HasShadow="true" IsClippedToBounds="True" 
+                   VerticalOptions="Start" HeightRequest="160"
+                   BackgroundColor="{StaticResource SupperGray}"/>
+
+            <StackLayout HorizontalOptions="Center">
+                <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                    <controls:CircleImage Source="{Binding CurrentUser.PhotoUrl}" HeightRequest="80" WidthRequest="80" Margin="0,10,0,0"/>
+                    <Label VerticalOptions="Center" Margin="0,0,0,0" HorizontalOptions="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span FontFamily="MuliBlack"
+                                  FontSize="20"
+                                  Text="{Binding CurrentUser.DisplayName}" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Label VerticalOptions="Center" Margin="0,-5,0,0" TextColor="{StaticResource LightGray}">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span FontSize="15"
+                                  Text="{Binding CurrentUser.Email}" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </StackLayout>
+
+                <material:MaterialButton BackgroundColor="{StaticResource Yellow}" HorizontalOptions="FillAndExpand" CornerRadius="20"
+                                         Text="Edit Profile" TextColor="White" FontSize="18" VerticalOptions="Center" HeightRequest="50"
+                                         AllCaps="False" Command="{Binding EditProfileCommand}" ImageSource="forward" ContentLayout="Right,30"/>
+            </StackLayout>
+            <!--#endregion-->
+
+            <!--#region Setting content -->
+            <StackLayout x:Name="sSetting" Grid.Row="1" Margin="0,15">
+                <Label FontFamily="MuliBlack" Text="CONTENT" FontSize="20" 
+                       Margin="20,0"/>
+                <!--#region Timer -->
+                <Frame BackgroundColor="{StaticResource SupperGray}" Padding="10"
+                       HasShadow="true" IsClippedToBounds="True">
+                    <Grid ColumnDefinitions="auto, *, auto">
+                        <Image Source="timer" HeightRequest="30" WidthRequest="30" Margin="10,0,5,0"/>
+                        <Grid Grid.Column="1" RowDefinitions="*, auto" VerticalOptions="Center">
+                            <Label Text="Timer" FontSize="20" VerticalOptions="End"/>
+                            <Label Grid.Row="1" Text="Set the time to turn off the laptop" VerticalOptions="Start"
+                                   Margin="0,-10,0,0" FontSize="12" TextColor="{StaticResource LightGray}"/>
+                        </Grid>
+                        <Image Grid.Column="2" Source="forwardbig" HeightRequest="15" WidthRequest="15"/>
+                    </Grid>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding Path=BindingContext.TimerCommand, Source={x:Reference Name=sSetting}}"
+                                              CommandParameter="{Binding .}" />
+                    </Frame.GestureRecognizers>
+                </Frame>
+                <!--#endregion-->
+                
+                <!--#region Screenshot -->
+                <Frame BackgroundColor="{StaticResource SupperGray}" Padding="10"
+                       HasShadow="true" IsClippedToBounds="True">
+                    <Grid ColumnDefinitions="auto, *, auto">
+                        <Image Source="Screenshot" HeightRequest="30" WidthRequest="30" Margin="10,0,5,0"/>
+                        <Grid Grid.Column="1" RowDefinitions="*, auto" VerticalOptions="Center">
+                            <Label Text="Screenshot" FontSize="20" VerticalOptions="End"/>
+                            <Label Grid.Row="1" Text="Configure the laptop's time and email to receive data" VerticalOptions="Start"
+                                   Margin="0,-10,0,0" FontSize="12" TextColor="{StaticResource LightGray}"/>
+                        </Grid>
+                        <Image Grid.Column="2" Source="forwardbig" HeightRequest="15" WidthRequest="15"/>
+                    </Grid>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding Path=BindingContext.ScreenshotCommand, Source={x:Reference Name=sSetting}}"
+                                              CommandParameter="{Binding .}" />
+                    </Frame.GestureRecognizers>
+                </Frame>
+                <!--#endregion-->
+                <!--#region Website -->
+                <Frame BackgroundColor="{StaticResource SupperGray}" Padding="10"
+                       HasShadow="true" IsClippedToBounds="True">
+                    <Grid ColumnDefinitions="auto, *, auto">
+                        <Image Source="Website" HeightRequest="30" WidthRequest="30" Margin="10,0,5,0"/>
+                        <Grid Grid.Column="1" RowDefinitions="*, auto" VerticalOptions="Center">
+                            <Label Text="Website" FontSize="20" VerticalOptions="End"/>
+                            <Label Grid.Row="1" Text="Information about blocked websites" VerticalOptions="Start"
+                                   Margin="0,-10,0,0" FontSize="12" TextColor="{StaticResource LightGray}"/>
+                        </Grid>
+                        <Image Grid.Column="2" Source="forwardbig" HeightRequest="15" WidthRequest="15"/>
+                    </Grid>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding Path=BindingContext.WebsiteCommand, Source={x:Reference Name=sSetting}}"
+                                              CommandParameter="{Binding .}" />
+                    </Frame.GestureRecognizers>
+                </Frame>
+                <!--#endregion-->
+
+                <Label FontFamily="MuliBlack" Text="PREFERENCES" FontSize="20" 
+                       Margin="20,10,20,0"/>
+
+                <!--#region Logout -->
+                <Frame BackgroundColor="{StaticResource SupperGray}" Padding="10"
+                       HasShadow="true" IsClippedToBounds="True">
+                    <Grid ColumnDefinitions="auto, *, auto">
+                        <Image Source="logout" HeightRequest="30" WidthRequest="30" Margin="10,0,5,0"/>
+                        <Grid Grid.Column="1" RowDefinitions="*, auto" VerticalOptions="Center">
+                            <Label Text="Logout" FontSize="20" VerticalOptions="End"/>
+                            <Label Grid.Row="1" Text="Sign out of your account" VerticalOptions="Start"
+                                   Margin="0,-10,0,0" FontSize="12" TextColor="{StaticResource LightGray}"/>
+                        </Grid>
+                        <Image Grid.Column="2" Source="forwardbig" HeightRequest="15" WidthRequest="15"/>
+                    </Grid>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding Path=BindingContext.LogoutCommand, Source={x:Reference Name=sSetting}}"
+                                              CommandParameter="{Binding .}" />
+                    </Frame.GestureRecognizers>
+                </Frame>
+                <!--#endregion-->
+            </StackLayout>
+            
+            <!--#endregion-->
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

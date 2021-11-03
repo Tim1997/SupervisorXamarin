@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             
+             Shell.NavBarIsVisible="True"
+             Shell.BackgroundColor="{StaticResource SupperGray}"
+             xmlns:vm="clr-namespace:SupervisorMaster.ViewModels"
+             xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+             xmlns:icon="clr-namespace:SupervisorMaster.Helpers"
+             Title="{Binding Title}"
+             
+             x:Class="SupervisorMaster.Views.RegisterPage">
+    <ContentPage.BindingContext>
+        <vm:RegisterViewModel />
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <Grid>
+            <Frame Padding="0" CornerRadius="10"
+                       HasShadow="true" IsClippedToBounds="True">
+                <Image Source="signupbackground" BackgroundColor="{StaticResource LightPrimary}" Aspect="AspectFill"/>
+            </Frame>
+            
+            <Frame Margin="30" BackgroundColor="{StaticResource Gray}"
+               HasShadow="True" CornerRadius="5" IsClippedToBounds="True" Padding="15"
+               HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
+                <StackLayout Margin="0" Padding="0">
+                    <material:MaterialTextField Placeholder="Display name" 
+                                        TextColor="White" FloatingPlaceholderColor="{StaticResource Yellow}" 
+                                        PlaceholderColor="White" Margin="0,8"
+                                        Text="{Binding DisplayName}" InputType="Default"
+                                        TintColor="{StaticResource Gray}"/>
+
+                    <material:MaterialTextField Placeholder="Email" 
+                                        TextColor="White" FloatingPlaceholderColor="{StaticResource Yellow}" 
+                                        PlaceholderColor="White" Margin="0,8"
+                                        Text="{Binding Email}" InputType="Email"
+                                        ErrorText="{Binding ErrorEmail}" ErrorColor="OrangeRed" HasError="{Binding IsErrorEmail}"
+                                        TintColor="{StaticResource Gray}"/>
+
+                    <material:MaterialTextField Placeholder="Password"
+                                        TextColor="White" FloatingPlaceholderColor="{StaticResource Yellow}" 
+                                        PlaceholderColor="White" Margin="0,8"
+                                        Text="{Binding Password}" InputType="Password"
+                                        ErrorText="{Binding ErrorPassword}" ErrorColor="OrangeRed" HasError="{Binding IsErrorPassword}"
+                                        TintColor="{StaticResource Gray}"/>
+
+                    <material:MaterialButton BackgroundColor="{StaticResource SupperDarkPrimary}" HorizontalOptions="FillAndExpand" 
+                                                        Text="Sign up" TextColor="White" VerticalOptions="Center" Margin="20,10,20,0"
+                                                        Command="{Binding SignupCommand}"/>
+                </StackLayout>
+            </Frame>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

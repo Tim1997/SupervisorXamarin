@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             
+             Shell.NavBarIsVisible="true"
+             Shell.NavBarHasShadow="True"
+             xmlns:vm="clr-namespace:SupervisorMaster.ViewModels.Settings"
+             xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+             xmlns:icon="clr-namespace:SupervisorMaster.Helpers"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:control="clr-namespace:SupervisorMaster.Controls"
+             Title="{Binding Title}"
+             
+             x:Class="SupervisorMaster.Views.Settings.WebsitePage">
+    <ContentPage.BindingContext>
+        <vm:WebsiteViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Behaviors>
+        <xct:EventToCommandBehavior
+                EventName="Appearing"
+                Command="{Binding PageAppearingCommand}" />
+    </ContentPage.Behaviors>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Command="{Binding AddWebsiteCommand}"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <Grid x:Name="gMain">
+            <ListView x:Name="lwebsite" ItemsSource="{Binding Websites}" SeparatorVisibility="None"
+                  RowHeight="60" SelectionMode="Single" BackgroundColor="Transparent">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <control:CustomViewCell>
+                            <Grid  ColumnDefinitions="*, 80" Margin="7" Padding="0">
+                                <material:MaterialLabel x:Name="lwebsite" FontSize="20" VerticalOptions="Center" Margin="20,0" Text="{Binding Url}"/>
+
+                                <material:MaterialIconButton Grid.Column="1" Image="trash" CornerRadius="30"
+                                                         HorizontalOptions="End" VerticalOptions="Center"
+                                                         WidthRequest="50" HeightRequest="50" Margin="0,0,10,0" BackgroundColor="Transparent"
+                                                         Command="{Binding Path=BindingContext.RemoveWebsiteCommand, Source={x:Reference Name=gMain}}"
+                                                         CommandParameter="{Binding Source={x:Reference lwebsite}, Path=Text}"/>
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="2"
+                                                      Command="{Binding Path=BindingContext.EditWebsiteCommand, Source={x:Reference Name=gMain}}"
+                                                      CommandParameter="{Binding Source={x:Reference lwebsite}, Path=Text}"/>
+                                </Grid.GestureRecognizers>
+                            </Grid>
+                        </control:CustomViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

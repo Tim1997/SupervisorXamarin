@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             
+             Shell.NavBarIsVisible="False"
+             xmlns:vm="clr-namespace:SupervisorMaster.ViewModels"
+             xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+             xmlns:icon="clr-namespace:SupervisorMaster.Helpers"
+             xmlns:cardview="clr-namespace:PanCardView;assembly=PanCardView"
+             xmlns:behaviors="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             
+             x:Class="SupervisorMaster.Views.HistoryPage">
+
+    <ContentPage.BindingContext>
+        <vm:HistoryViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Behaviors>
+        <xct:EventToCommandBehavior
+                EventName="Appearing"
+                Command="{Binding PageAppearingCommand}" />
+    </ContentPage.Behaviors>
+
+    <ContentPage.Content>
+        <Grid>
+            <Frame Padding="0" CornerRadius="20"
+                   HasShadow="true" IsClippedToBounds="True" 
+                   VerticalOptions="Start" HeightRequest="80"
+                   BackgroundColor="{StaticResource SupperGray}"/>
+            <Frame Padding="0"
+                   HasShadow="true" IsClippedToBounds="True" 
+                   VerticalOptions="Start" HeightRequest="60"
+                   BackgroundColor="{StaticResource SupperGray}"/>
+
+            <Grid RowDefinitions="auto, auto, *" >
+
+                <!--#region Header -->
+                <Grid Grid.Row="0" ColumnSpacing="0"
+                      HorizontalOptions="FillAndExpand"
+                      RowDefinitions="auto, auto, auto, auto, auto"
+                      VerticalOptions="FillAndExpand"
+                      x:Name="gMain">
+
+                    <!--#region Header -->
+                    <Grid Grid.Row="0" ColumnDefinitions="*, auto, auto, auto">
+                        <!--#region Title-->
+                        <StackLayout
+                        Grid.Row="0"
+                        Margin="20,30,20,0"
+                        HorizontalOptions="FillAndExpand"
+                        Orientation="Horizontal">
+                            <Image
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Aspect="AspectFit"
+                            HeightRequest="40" WidthRequest="40" 
+                            Source="logo"/>
+                            <Label VerticalOptions="Center">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span
+                                        FontFamily="MuliBlack"
+                                        FontSize="20"
+                                        Text="WEBSITE" />
+                                        <Span
+                                        FontFamily="MuliBlack"
+                                        FontSize="20"
+                                        Text=" HISTORY"
+                                        TextColor="{StaticResource Yellow}" />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </StackLayout>
+                        <!--#endregion-->
+                    </Grid>
+                    <!--#endregion-->
+                </Grid>
+                <!--#endregion-->
+
+                <!--#region Title -->
+                <Label Grid.Row="1" FontFamily="MuliBlack" Text="TODAY HISTORY" FontSize="20" 
+                       VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand"
+                       Margin="20,0"/>
+                <!--#endregion-->
+
+                <!--#region Content History -->
+                <ActivityIndicator Grid.Row="2" HorizontalOptions="Center" VerticalOptions="Center"
+                               IsRunning="{Binding IsBusy}" Color="{StaticResource Yellow}" />
+                
+                <!--#region Content -->
+                <CollectionView Grid.Row="2" Margin="25,10,25,5" IsVisible="{Binding !IsBusy}"
+                            HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                            SelectionMode="None" ItemsSource="{Binding Agendas}">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Vertical" ItemSpacing="10"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <cardview:CardsView BackgroundColor="{StaticResource LightGray}" Margin="0"
+                                                HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                <Grid VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <BoxView BackgroundColor="{Binding Color}" WidthRequest="3" HorizontalOptions="Start"
+                                     VerticalOptions="FillAndExpand"/>
+                                    <behaviors:Expander Grid.Column="1">
+                                        <behaviors:Expander.Header>
+                                            <Grid HorizontalOptions="FillAndExpand">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="3.5*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                                                    <Label Text="{Binding DateStart, StringFormat='{0:hh:mm tt}'}" TextColor="Black" FontSize="15" 
+                                                            HorizontalOptions="Center"/>
+                                                    <Label Text="|" HorizontalOptions="Center" Margin="0,-9,0,0"/>
+                                                    <Label Text="{Binding DateEnd, StringFormat='{0:hh:mm tt}'}" TextColor="Black" FontSize="15" 
+                                                            HorizontalOptions="Center" Margin="0,-9,0,0"/>
+                                                </StackLayout>
+                                                <BoxView Grid.Column="1" BackgroundColor="#F2F4F8" WidthRequest="1" HorizontalOptions="Start" 
+                                                 VerticalOptions="FillAndExpand"/>
+                                                <StackLayout Grid.Column="2" HorizontalOptions="Start" VerticalOptions="Center" Margin="20">
+                                                    <Label Text="{Binding Topic}" TextColor="Black" FontSize="15"/>
+                                                    <Label Text="{Binding Description}" TextColor="#2F3246" FontSize="12" Margin="0,-8,0,0"/>
+                                                </StackLayout>
+                                            </Grid>
+                                        </behaviors:Expander.Header>
+                                        <Grid HorizontalOptions="FillAndExpand">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="3.5*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <BoxView Grid.Column="1" BackgroundColor="#F2F4F8" WidthRequest="1" HorizontalOptions="Start" 
+                                             VerticalOptions="FillAndExpand"/>
+                                            <StackLayout Grid.Column="2" Spacing="10">
+                                                <StackLayout BindableLayout.ItemsSource="{Binding Historys}" HorizontalOptions="Start" VerticalOptions="Center" Margin="20,0,0,20">
+                                                    <Label Text="DETAILS" TextColor="Black" Opacity="0.5" FontSize="10" Margin="20,0"/>
+                                                    <BindableLayout.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <Label TextColor="#2F3246" FontSize="12">
+                                                                <Label.FormattedText>
+                                                                    <FormattedString>
+                                                                        <FormattedString.Spans>
+                                                                            <Span Text="{Binding VisitedTime, StringFormat='{0:hh:mm tt}'}"/>
+                                                                            <Span Text=" - "/>
+                                                                            <Span Text="{Binding Title}" FontAttributes="Bold"/>
+                                                                        </FormattedString.Spans>
+                                                                    </FormattedString>
+                                                                </Label.FormattedText>
+                                                            </Label>
+                                                        </DataTemplate>
+                                                    </BindableLayout.ItemTemplate>
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </Grid>
+                                    </behaviors:Expander>
+                                </Grid>
+                            </cardview:CardsView>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+                <!--#endregion-->
+                <!--#endregion-->
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

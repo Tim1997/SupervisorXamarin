@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "971884655159",
+    "firebase_url": "https://supervisor-cloud-default-rtdb.firebaseio.com",
+    "project_id": "supervisor-cloud",
+    "storage_bucket": "supervisor-cloud.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:971884655159:android:45b54d322c8a6dab94c5b2",
+        "android_client_info": {
+          "package_name": "com.companyname.supervisormaster"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "971884655159-oa2ptp9jqecbo6qc0komfjopr4d3r9pq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA52aog-4RxsBkceLLLsw54Kax8ag5jL-0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "971884655159-oa2ptp9jqecbo6qc0komfjopr4d3r9pq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

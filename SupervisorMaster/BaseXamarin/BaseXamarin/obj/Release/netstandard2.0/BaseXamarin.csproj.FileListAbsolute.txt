@@ -1,0 +1,10 @@
+E:\Git\Xamarin\Schedule\Schedule\BaseXamarin\BaseXamarin\bin\Release\netstandard2.0\BaseXamarin.deps.json
+E:\Git\Xamarin\Schedule\Schedule\BaseXamarin\BaseXamarin\bin\Release\netstandard2.0\BaseXamarin.dll
+E:\Git\Xamarin\Schedule\Schedule\BaseXamarin\BaseXamarin\bin\Release\netstandard2.0\BaseXamarin.pdb
+E:\Git\Xamarin\Schedule\Schedule\BaseXamarin\BaseXamarin\obj\Release\netstandard2.0\BaseXamarin.csproj.AssemblyReference.cache
+E:\Git\Xamarin\Schedule\Schedule\BaseXamarin\BaseXamarin\obj\Release\netstandard2.0\BaseXamarin.GeneratedMSBuildEditorConfig.editorconfig
+E:\Git\Xamarin\Schedule\Schedule\BaseXamarin\BaseXamarin\obj\Release\netstandard2.0\BaseXamarin.AssemblyInfoInputs.cache
+E:\Git\Xamarin\Schedule\Schedule\BaseXamarin\BaseXamarin\obj\Release\netstandard2.0\BaseXamarin.AssemblyInfo.cs
+E:\Git\Xamarin\Schedule\Schedule\BaseXamarin\BaseXamarin\obj\Release\netstandard2.0\BaseXamarin.csproj.CoreCompileInputs.cache
+E:\Git\Xamarin\Schedule\Schedule\BaseXamarin\BaseXamarin\obj\Release\netstandard2.0\BaseXamarin.dll
+E:\Git\Xamarin\Schedule\Schedule\BaseXamarin\BaseXamarin\obj\Release\netstandard2.0\BaseXamarin.pdb

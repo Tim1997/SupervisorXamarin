@@ -1,0 +1,76 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CardsView" Version="2.8.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="2.0.0.14" />
+    <PackageReference Include="Xam.Plugin.Media" Version="5.0.1" />
+    <PackageReference Include="Xam.Plugins.Forms.ImageCircle" Version="3.0.0.5" />
+    <PackageReference Include="Xamarin.CommunityToolkit" Version="1.2.0" />  
+    <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />  
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2083" />  
+    <PackageReference Include="XF.Material" Version="1.7.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Fonts\fontello.ttf" />
+    <None Remove="Fonts\materialdesignicons.ttf" />
+    <None Remove="Fonts\muli-black.ttf" />
+    <None Remove="Fonts\Muli-Bold.ttf" />
+    <None Remove="Fonts\muli-regular.ttf" />
+    <None Remove="Fonts\opensans-semibold.ttf" />
+    <None Remove="Models\ResponseDialog.cs~RF3db5da.TMP" />
+    <None Remove="Views\LoginPage.xaml~RF343664.TMP" />
+    <None Remove="Views\LoginPage.xaml~RF38591c.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Fonts\fontello.ttf" />
+    <EmbeddedResource Include="Fonts\materialdesignicons.ttf" />
+    <EmbeddedResource Include="Fonts\muli-black.ttf" />
+    <EmbeddedResource Include="Fonts\muli-bold.ttf" />
+    <EmbeddedResource Include="Fonts\muli-regular.ttf" />
+    <EmbeddedResource Include="Fonts\opensans-semibold.ttf" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Folder Include="Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BaseXamarin\BaseXamarin\BaseXamarin.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <GoogleServicesJson Include="google-services.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\HistoryPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Login\LoginPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Login\RegisterPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\SettingsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Settings\ProfilePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Settings\TimerPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Settings\WebsitePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

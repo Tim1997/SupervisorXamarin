@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             Shell.NavBarIsVisible="true"
+             Shell.NavBarHasShadow="False"
+             xmlns:vm="clr-namespace:SupervisorMaster.ViewModels.Settings"
+             xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+             xmlns:icon="clr-namespace:SupervisorMaster.Helpers"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             Title="{Binding Title}"
+             
+             x:Class="SupervisorMaster.Views.Settings.ProfilePage">
+    <ContentPage.BindingContext>
+        <vm:ProfileViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Save" Command="{Binding SaveCommand}"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Behaviors>
+        <xct:EventToCommandBehavior
+                EventName="Appearing"
+                Command="{Binding PageAppearingCommand}" />
+    </ContentPage.Behaviors>
+    <ContentPage.Content>
+        <Grid>
+            <!--<Grid>
+                <ActivityIndicator  HorizontalOptions="Center" VerticalOptions="Center" Visual="Material"
+                               IsRunning="True" Color="{StaticResource Yellow}" />
+            </Grid>-->
+            <Grid RowDefinitions="200, auto, auto, auto, auto">
+                <Frame Grid.Row="0" Padding="10" BackgroundColor="{StaticResource SupperGray}"
+                   HasShadow="true" IsClippedToBounds="True">
+                    <Grid>
+                        <controls:CircleImage Source="{Binding Image}" Aspect="AspectFit" 
+                                      HorizontalOptions="Center"
+                                      HeightRequest="200" WidthRequest="200" />
+                        <material:MaterialIconButton Image="camera" CornerRadius="30"
+                                                 HorizontalOptions="Center" VerticalOptions="Center"
+                                                 BackgroundColor="{StaticResource Yellow}"
+                                                 WidthRequest="50" HeightRequest="50"
+                                                 Margin="130,130,0,0" Command="{Binding ImageCommand}"/>
+                    </Grid>
+                </Frame>
+
+                <!--#region Title -->
+                <Label Grid.Row="1" FontFamily="MuliBlack" Text="INFORMATION" FontSize="20" 
+                       VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand"
+                       Margin="20,20,20,0"/>
+                <!--#endregion-->
+
+                <StackLayout Grid.Row="2" Margin="20,0,20,0">
+                    <material:MaterialTextField Placeholder="Email" Grid.Column="1" 
+                                            CardBackgroundColor="{StaticResource LightGray}" 
+                                            TextColor="White" FloatingPlaceholderColor="{StaticResource Yellow}" 
+                                            PlaceholderColor="White" IsEnabled="False"
+                                            Text="{Binding CurrentUser.Email}" InputType="Default"
+                                            TintColor="{StaticResource Gray}"/>
+                    <Grid ColumnDefinitions="*, *" >
+                        <material:MaterialTextField Placeholder="First name" Grid.Column="0"
+                                                CardBackgroundColor="{StaticResource LightGray}" 
+                                                TextColor="White" FloatingPlaceholderColor="{StaticResource Yellow}" 
+                                                PlaceholderColor="White" 
+                                                Text="{Binding CurrentUser.FirstName}" InputType="Default"
+                                                ErrorText="Value can not be empty" ErrorColor="OrangeRed" HasError="{Binding IsErrorFirstName}"
+                                                TintColor="{StaticResource Gray}"/>
+                        <material:MaterialTextField Placeholder="Last name" Grid.Column="1"
+                                                CardBackgroundColor="{StaticResource LightGray}" 
+                                                TextColor="White" FloatingPlaceholderColor="{StaticResource Yellow}" 
+                                                PlaceholderColor="White"
+                                                Text="{Binding CurrentUser.LastName}" InputType="Default"
+                                                ErrorText="Value can not be empty" ErrorColor="OrangeRed" HasError="{Binding IsErrorLastName}"
+                                                TintColor="{StaticResource Gray}"/>
+                    </Grid>
+                    <material:MaterialTextField Placeholder="Display name" Grid.Column="1"
+                                                CardBackgroundColor="{StaticResource LightGray}" 
+                                                TextColor="White" FloatingPlaceholderColor="{StaticResource Yellow}" 
+                                                PlaceholderColor="White"
+                                                Text="{Binding CurrentUser.DisplayName}" InputType="Default"
+                                                ErrorText="Value can not be empty" ErrorColor="OrangeRed" HasError="{Binding IsErrorDisplayName}"
+                                                TintColor="{StaticResource Gray}"/>
+                    <material:MaterialTextField Placeholder="Phone number" Grid.Column="1"
+                                            CardBackgroundColor="{StaticResource LightGray}" 
+                                            TextColor="White" FloatingPlaceholderColor="{StaticResource Yellow}" 
+                                            PlaceholderColor="White"
+                                            ErrorText="Value can not be empty" ErrorColor="OrangeRed" HasError="{Binding IsErrorPhoneNumber}"
+                                            Text="{Binding CurrentUser.PhoneNumber}" InputType="Numeric"
+                                            TintColor="{StaticResource Gray}"/>
+                </StackLayout>
+
+                <!--#region Title -->
+                <Label Grid.Row="3" FontFamily="MuliBlack" Text="ADDITIONAL" FontSize="20" 
+                       VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand"
+                       Margin="20,20,20,0"/>
+                <!--#endregion-->
+
+                <Grid Grid.Row="4" Margin="20,0,20,0" ColumnDefinitions="*, auto">
+                    <material:MaterialTextField Placeholder="Password" Grid.Column="0"
+                                            CardBackgroundColor="{StaticResource LightGray}" 
+                                            TextColor="White" FloatingPlaceholderColor="{StaticResource Yellow}" 
+                                            PlaceholderColor="White"
+                                            Text="{Binding Password}" InputType="Password"
+                                            TintColor="{StaticResource Gray}"/>
+                    <material:MaterialIconButton Image="edit" CornerRadius="30" Grid.Column="1"
+                                                 HorizontalOptions="Center" VerticalOptions="Center"
+                                                 BackgroundColor="{StaticResource Yellow}"
+                                                 WidthRequest="50" HeightRequest="50"
+                                                 Command="{Binding PasswordCommand}"/>
+                </Grid>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

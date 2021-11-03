@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<popups:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             
+             xmlns:popups="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             Shell.NavBarIsVisible="true"
+             Shell.NavBarHasShadow="False"
+             xmlns:vm="clr-namespace:SupervisorMaster.ViewModels.Settings"
+             xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+             xmlns:icon="clr-namespace:SupervisorMaster.Helpers"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:custom="clr-namespace:SupervisorMaster.Controls"
+             Title="{Binding Title}"
+             
+             x:Class="SupervisorMaster.Views.Settings.TimerPage">
+    <popups:PopupPage.BindingContext>
+        <vm:TimerViewModel/>
+    </popups:PopupPage.BindingContext>
+    <ContentPage.Behaviors>
+        <xct:EventToCommandBehavior
+                EventName="Appearing"
+                Command="{Binding PageAppearingCommand}" />
+    </ContentPage.Behaviors>
+    <Frame HorizontalOptions="FillAndExpand" VerticalOptions="Center"
+           BackgroundColor="{StaticResource Dialog}" CornerRadius="8"
+           HasShadow="true" IsClippedToBounds="True" Margin="35,0">
+        
+        <Grid RowDefinitions="auto, *, auto, auto" x:Name="gMain">
+            <!--#region Title -->
+            <Grid ColumnDefinitions="*, auto">
+                <Label Grid.Row="0" x:Name="lState" FontFamily="MuliBlack" FontSize="20" 
+                       VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
+
+                <Switch Grid.Column="1" x:Name="sClock" 
+                        OnColor="{StaticResource Yellow}" ThumbColor="{StaticResource LightGray}"/>
+            </Grid>
+            <!--#endregion-->
+
+            <!--#region Clock -->
+            <Grid Grid.Row="1" Margin="10,20">
+                <!--<custom:NullableTimePicker NullableTime="{Binding BindingContext.TimeClock}"/>-->
+                <material:MaterialTimePicker Format="T" FontSize="25" HorizontalOptions="Center" x:Name="tpClock"/>
+            </Grid>
+            <!--#endregion-->
+
+            <!--#region Countdown -->
+            <Grid Grid.Row="1" Margin="20"
+                  VerticalOptions="Center">
+                <material:MaterialTextField Placeholder="Minute" x:Name="tfMinute" 
+                                            CardBackgroundColor="{StaticResource Gray}" 
+                                            TextColor="White" FloatingPlaceholderColor="{StaticResource Yellow}" 
+                                            PlaceholderColor="White" InputType="Numeric"
+                                            TintColor="{StaticResource Gray}"/>
+            </Grid>
+            <!--#endregion-->
+
+            <!--#region Footer -->
+            <StackLayout Grid.Row="2" HorizontalOptions="Center" VerticalOptions="Center">
+                <material:MaterialRadioButtonGroup x:Name="gRepeat" Choices="{Binding Repeat}"/>
+            </StackLayout>
+            
+            <StackLayout Grid.Row="3" Orientation="Horizontal" HorizontalOptions="End" Padding="0">
+                <material:MaterialButton ButtonType="Text" Text="Cancel" Clicked="CancelClicked"/>
+                <material:MaterialButton ButtonType="Text" Text="OK" Clicked="OKClicked"/>
+            </StackLayout>
+            <!--#endregion-->
+        </Grid>
+    </Frame>
+</popups:PopupPage>
