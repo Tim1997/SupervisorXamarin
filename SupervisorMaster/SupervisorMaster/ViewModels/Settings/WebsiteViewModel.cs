@@ -140,8 +140,6 @@ namespace SupervisorMaster.ViewModels.Settings
                                      msDuration: MaterialSnackbar.DurationLong);
                 }
             }
-
-
         }
 
         private void AddWebsite(List<WebsiteView> lwebsite)

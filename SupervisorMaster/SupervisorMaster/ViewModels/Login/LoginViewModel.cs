@@ -6,10 +6,13 @@ using SupervisorMaster.Views;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Essentials;
 using Xamarin.Forms;
+using XF.Material.Forms.UI;
 using XF.Material.Forms.UI.Dialogs;
+using XF.Material.Forms.UI.Dialogs.Configurations;
 
 namespace SupervisorMaster.ViewModels
 {
@@ -97,9 +100,37 @@ namespace SupervisorMaster.ViewModels
             }
         });
 
-        public ICommand ForgetPasswordCommand => new Command(() =>
+        public ICommand ForgetPasswordCommand => new Command(async () =>
         {
-            
+            var loadingDialog = await MaterialDialog.Instance.LoadingDialogAsync(message: "Loading");
+            IsBusy = true;
+
+            try
+            {
+                await ShowDialog("Reset password", async (outer) =>
+                {
+                    await FirebaseAuthProvider.SendPasswordResetEmailAsync(Email);
+                });
+                
+            }
+            catch (FirebaseAuthException ex)
+            {
+                if (ex.ResponseData == "N/A")
+                    await MaterialDialog.Instance.SnackbarAsync(message: "Internet connection error",
+                                     msDuration: MaterialSnackbar.DurationLong);
+                else
+                {
+                    var response = JsonConvert.DeserializeObject<ResponseFirebase>(ex.ResponseData);
+
+                    await MaterialDialog.Instance.SnackbarAsync(message: response.error.message,
+                                         msDuration: MaterialSnackbar.DurationLong);
+                }
+            }
+            finally
+            {
+                await loadingDialog.DismissAsync();
+                IsBusy = false;
+            }
         });
 
         public ICommand SignupCommand => new Command(async () =>
@@ -117,6 +148,32 @@ namespace SupervisorMaster.ViewModels
             Password = "12345678";
         }
 
-        
+        #region Method
+        private async Task ShowDialog(string title, Action<string> action, string input = null)
+        {
+            var config = new MaterialInputDialogConfiguration()
+            {
+                InputType = MaterialTextFieldInputType.Email,
+                BackgroundColor = Color.FromHex("#1b1b1b"),
+            };
+
+            var outer = await MaterialDialog.Instance.InputAsync(title: title,
+                                                                 message: "Please write email to receive password reset",
+                                                                 inputText: input,
+                                                                 inputPlaceholder: "Email",
+                                                                 configuration: config);
+            if (!string.IsNullOrEmpty(outer))
+            {
+                if (!CommonHelper.EmailValidation(outer.Trim()))
+                {
+                    await MaterialDialog.Instance.SnackbarAsync(message: "Wrong email format",
+                                     msDuration: MaterialSnackbar.DurationLong);
+                    return;
+                }
+
+                action?.Invoke(outer);
+            }
+        }
+        #endregion
     }
 }
