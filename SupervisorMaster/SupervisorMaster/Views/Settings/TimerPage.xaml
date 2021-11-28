@@ -39,7 +39,8 @@
             <!--#region Clock -->
             <Grid Grid.Row="1" Margin="10,20">
                 <!--<custom:NullableTimePicker NullableTime="{Binding BindingContext.TimeClock}"/>-->
-                <material:MaterialTimePicker Format="T" FontSize="25" HorizontalOptions="Center" x:Name="tpClock"/>
+                <material:MaterialTimePicker Format="HH:mm:ss" 
+                                             FontSize="25" HorizontalOptions="Center" x:Name="tpClock"/>
             </Grid>
             <!--#endregion-->
 

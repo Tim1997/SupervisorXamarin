@@ -26,7 +26,7 @@ namespace BaseXamarin.IoC
 
             Services.AddSingleton<INavigationService, NavigationService>();
             Services.AddSingleton<IDialogService, DialogService>();
-            Services.AddSingleton<IStorageService, StorageService>();
+            //Services.AddSingleton<IStorageService, StorageService>();
 
             Mappings = new Dictionary<Type, Type>();
 

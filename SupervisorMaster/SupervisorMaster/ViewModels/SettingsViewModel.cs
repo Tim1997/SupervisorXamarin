@@ -46,7 +46,12 @@ namespace SupervisorMaster.ViewModels
                 var timers = await FirebaseDatabase.Child(User.LocalId)
                     .Child("Timer")
                     .OnceAsync<TimerView>();
-                var timer = timers.FirstOrDefault(x => x.Object.Email == User.Email).Object;
+
+                TimerView timer = null;
+                if (timers != null && timers.Count != 0)
+                {
+                    timer = timers?.FirstOrDefault(x => x.Object.Email == User.Email).Object;
+                }    
 
                 var response = await TimerPage.ShowDialog(Shell.Current.Navigation, timer);
                 if (response.Result)
@@ -83,9 +88,12 @@ namespace SupervisorMaster.ViewModels
                     .Child("Screenshot")
                     .OnceAsync<ScreenshotView>();
 
-            var screenshot = screenshots.FirstOrDefault(x => x.Object.Email == User.Email).Object;
-            if (screenshot != null)
-                view.SelectedIndex = values.ToList().FindIndex(x => x == screenshot.Time);
+            if(screenshots.Count != 0)
+            {
+                var screenshot = screenshots.FirstOrDefault(x => x.Object.Email == User.Email).Object;
+                if (screenshot != null)
+                    view.SelectedIndex = values.ToList().FindIndex(x => x == screenshot.Time);
+            }    
 
             bool? wasConfirmed = await MaterialDialog.Instance.ShowCustomContentAsync(view, "How long do you want to automatically take screenshots?", "Screenshot");
             if(wasConfirmed == true)

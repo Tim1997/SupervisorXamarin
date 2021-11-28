@@ -70,13 +70,9 @@
               "target": "Package",
               "version": "[13.0.1, )"
             },
-            "PCLStorage": {
-              "target": "Package",
-              "version": "[1.0.2, )"
-            },
             "Xamarin.Forms": {
               "target": "Package",
-              "version": "[5.0.0.2083, )"
+              "version": "[5.0.0.2012, )"
             }
           },
           "imports": [
@@ -177,7 +173,7 @@
             },
             "Xamarin.Forms": {
               "target": "Package",
-              "version": "[5.0.0.2083, )"
+              "version": "[5.0.0.2012, )"
             }
           },
           "imports": [

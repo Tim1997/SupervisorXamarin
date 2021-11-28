@@ -8,3 +8,13 @@ E:\Git\Xamarin\Schedule\Schedule\BaseXamarin\BaseXamarin\obj\Release\netstandard
 E:\Git\Xamarin\Schedule\Schedule\BaseXamarin\BaseXamarin\obj\Release\netstandard2.0\BaseXamarin.csproj.CoreCompileInputs.cache
 E:\Git\Xamarin\Schedule\Schedule\BaseXamarin\BaseXamarin\obj\Release\netstandard2.0\BaseXamarin.dll
 E:\Git\Xamarin\Schedule\Schedule\BaseXamarin\BaseXamarin\obj\Release\netstandard2.0\BaseXamarin.pdb
+E:\Xamarin\SupervisorMaster\SupervisorMaster\BaseXamarin\BaseXamarin\bin\Release\netstandard2.0\BaseXamarin.deps.json
+E:\Xamarin\SupervisorMaster\SupervisorMaster\BaseXamarin\BaseXamarin\bin\Release\netstandard2.0\BaseXamarin.dll
+E:\Xamarin\SupervisorMaster\SupervisorMaster\BaseXamarin\BaseXamarin\bin\Release\netstandard2.0\BaseXamarin.pdb
+E:\Xamarin\SupervisorMaster\SupervisorMaster\BaseXamarin\BaseXamarin\obj\Release\netstandard2.0\BaseXamarin.GeneratedMSBuildEditorConfig.editorconfig
+E:\Xamarin\SupervisorMaster\SupervisorMaster\BaseXamarin\BaseXamarin\obj\Release\netstandard2.0\BaseXamarin.AssemblyInfoInputs.cache
+E:\Xamarin\SupervisorMaster\SupervisorMaster\BaseXamarin\BaseXamarin\obj\Release\netstandard2.0\BaseXamarin.AssemblyInfo.cs
+E:\Xamarin\SupervisorMaster\SupervisorMaster\BaseXamarin\BaseXamarin\obj\Release\netstandard2.0\BaseXamarin.csproj.CoreCompileInputs.cache
+E:\Xamarin\SupervisorMaster\SupervisorMaster\BaseXamarin\BaseXamarin\obj\Release\netstandard2.0\BaseXamarin.dll
+E:\Xamarin\SupervisorMaster\SupervisorMaster\BaseXamarin\BaseXamarin\obj\Release\netstandard2.0\BaseXamarin.pdb
+E:\Xamarin\SupervisorMaster\SupervisorMaster\BaseXamarin\BaseXamarin\obj\Release\netstandard2.0\BaseXamarin.csproj.AssemblyReference.cache

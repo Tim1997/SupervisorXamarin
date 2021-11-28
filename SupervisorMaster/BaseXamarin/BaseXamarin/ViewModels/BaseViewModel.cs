@@ -37,7 +37,7 @@ namespace BaseXamarin.ViewModels
             return true;
         }
 
-        protected readonly IStorageService StorageService;
+        //protected readonly IStorageService StorageService;
         protected readonly INavigationService NavigationService;
         protected readonly IDialogService DialogService;
         protected readonly FirebaseClient FirebaseDatabase;
@@ -65,7 +65,7 @@ namespace BaseXamarin.ViewModels
             Title = title;
             NavigationService = IoC.Container.Current.Resolve<INavigationService>();
             DialogService = IoC.Container.Current.Resolve<IDialogService>();
-            StorageService = IoC.Container.Current.Resolve<IStorageService>();
+            //StorageService = IoC.Container.Current.Resolve<IStorageService>();
             FirebaseDatabase = new FirebaseClient(realtimedata);
             FirebaseStorage = new FirebaseStorage(storage);
             FirebaseAuthProvider = new FirebaseAuthProvider(new FirebaseConfig(auth));

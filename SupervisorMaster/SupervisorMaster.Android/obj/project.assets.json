@@ -196,17 +196,6 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
-      "PCLStorage/1.0.2": {
-        "type": "package",
-        "compile": {
-          "lib/monoandroid/PCLStorage.Abstractions.dll": {},
-          "lib/monoandroid/PCLStorage.dll": {}
-        },
-        "runtime": {
-          "lib/monoandroid/PCLStorage.Abstractions.dll": {},
-          "lib/monoandroid/PCLStorage.dll": {}
-        }
-      },
       "Rg.Plugins.Popup/2.0.0.14": {
         "type": "package",
         "dependencies": {
@@ -1757,8 +1746,7 @@
           "FirebaseStorage.net": "1.0.3",
           "Microsoft.Extensions.DependencyInjection": "5.0.1",
           "Newtonsoft.Json": "13.0.1",
-          "PCLStorage": "1.0.2",
-          "Xamarin.Forms": "5.0.0.2083"
+          "Xamarin.Forms": "5.0.0.2012"
         },
         "compile": {
           "bin/placeholder/BaseXamarin.dll": {}
@@ -1780,7 +1768,7 @@
           "Xam.Plugins.Forms.ImageCircle": "3.0.0.5",
           "Xamarin.CommunityToolkit": "1.2.0",
           "Xamarin.Essentials": "1.6.1",
-          "Xamarin.Forms": "5.0.0.2083"
+          "Xamarin.Forms": "5.0.0.2012"
         },
         "compile": {
           "bin/placeholder/SupervisorMaster.dll": {}
@@ -2066,53 +2054,6 @@
         "newtonsoft.json.13.0.1.nupkg.sha512",
         "newtonsoft.json.nuspec",
         "packageIcon.png"
-      ]
-    },
-    "PCLStorage/1.0.2": {
-      "sha512": "9If+1ZFCk3QaT/asfiL+J9FMnx2CTMrLCU8tDMUOI/aCGWGWl9vJ1/KcMkjf92op23ZknenvYJZBLDAqE3sFlg==",
-      "type": "package",
-      "path": "pclstorage/1.0.2",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/monoandroid/PCLStorage.Abstractions.dll",
-        "lib/monoandroid/PCLStorage.Abstractions.xml",
-        "lib/monoandroid/PCLStorage.dll",
-        "lib/monoandroid/PCLStorage.xml",
-        "lib/monotouch/PCLStorage.Abstractions.dll",
-        "lib/monotouch/PCLStorage.Abstractions.xml",
-        "lib/monotouch/PCLStorage.dll",
-        "lib/monotouch/PCLStorage.xml",
-        "lib/net45/PCLStorage.Abstractions.dll",
-        "lib/net45/PCLStorage.Abstractions.xml",
-        "lib/net45/PCLStorage.dll",
-        "lib/net45/PCLStorage.xml",
-        "lib/portable-Xamarin.iOS+Xamarin.Mac/PCLStorage.Abstractions.dll",
-        "lib/portable-Xamarin.iOS+Xamarin.Mac/PCLStorage.Abstractions.xml",
-        "lib/portable-Xamarin.iOS+Xamarin.Mac/PCLStorage.dll",
-        "lib/portable-Xamarin.iOS+Xamarin.Mac/PCLStorage.xml",
-        "lib/portable-net45+sl5+wp8+wpa81+win8+monoandroid+monotouch+Xamarin.iOS+Xamarin.Mac/PCLStorage.Abstractions.dll",
-        "lib/portable-net45+sl5+wp8+wpa81+win8+monoandroid+monotouch+Xamarin.iOS+Xamarin.Mac/PCLStorage.Abstractions.xml",
-        "lib/portable-net45+sl5+wp8+wpa81+win8+monoandroid+monotouch+Xamarin.iOS+Xamarin.Mac/PCLStorage.dll",
-        "lib/portable-net45+sl5+wp8+wpa81+win8+monoandroid+monotouch+Xamarin.iOS+Xamarin.Mac/PCLStorage.xml",
-        "lib/portable-net45+wp8+wpa81+win8+monoandroid+monotouch+Xamarin.iOS+Xamarin.Mac/PCLStorage.Abstractions.dll",
-        "lib/portable-net45+wp8+wpa81+win8+monoandroid+monotouch+Xamarin.iOS+Xamarin.Mac/PCLStorage.Abstractions.xml",
-        "lib/portable-net45+wp8+wpa81+win8+monoandroid+monotouch+Xamarin.iOS+Xamarin.Mac/PCLStorage.dll",
-        "lib/portable-net45+wp8+wpa81+win8+monoandroid+monotouch+Xamarin.iOS+Xamarin.Mac/PCLStorage.xml",
-        "lib/portable-win8+wpa81/PCLStorage.Abstractions.dll",
-        "lib/portable-win8+wpa81/PCLStorage.Abstractions.xml",
-        "lib/portable-win8+wpa81/PCLStorage.dll",
-        "lib/portable-win8+wpa81/PCLStorage.xml",
-        "lib/sl5/PCLStorage.Abstractions.dll",
-        "lib/sl5/PCLStorage.Abstractions.xml",
-        "lib/sl5/PCLStorage.dll",
-        "lib/sl5/PCLStorage.xml",
-        "lib/wp8/PCLStorage.Abstractions.dll",
-        "lib/wp8/PCLStorage.Abstractions.xml",
-        "lib/wp8/PCLStorage.dll",
-        "lib/wp8/PCLStorage.xml",
-        "pclstorage.1.0.2.nupkg.sha512",
-        "pclstorage.nuspec"
       ]
     },
     "Rg.Plugins.Popup/2.0.0.14": {
@@ -6311,17 +6252,5 @@
         }
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1605",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Detected package downgrade: Xamarin.Forms from 5.0.0.2083 to 5.0.0.2012. Reference the package directly from the project to select a different version. \r\n SupervisorMaster.Android -> SupervisorMaster -> Xamarin.Forms (>= 5.0.0.2083) \r\n SupervisorMaster.Android -> Xamarin.Forms (>= 5.0.0.2012)",
-      "libraryId": "Xamarin.Forms",
-      "targetGraphs": [
-        "MonoAndroid,Version=v11.0"
-      ]
-    }
-  ]
+  }
 }

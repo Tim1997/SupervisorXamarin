@@ -51,7 +51,7 @@ namespace SupervisorMaster.Views.Settings
         {
             var isclock = sClock.IsToggled;
             var clock = tpClock.Time;
-            var minute = int.Parse(tfMinute.Text??"0");
+            var minute = int.Parse(string.IsNullOrEmpty(tfMinute.Text) ? "0" : tfMinute.Text);
             var isonce = gRepeat.SelectedIndex == 0 ? true : false;
 
             setResultAction?.Invoke(new ResponseDialog { Result = true, Objs = new object[] { isclock, clock, minute, isonce } });
@@ -67,16 +67,16 @@ namespace SupervisorMaster.Views.Settings
                 completionSource.TrySetResult(response);
             }
             var popup = new TimerPage(callback);
-            await navigation.PushPopupAsync(popup);
 
-            if(view != null)
+            if (view != null)
             {
                 popup.tpClock.Time = view.Clock;
                 popup.tfMinute.Text = view.Minute.ToString();
                 popup.gRepeat.SelectedIndex = view.IsOnce ? 0 : 1;
 
-                if(view.IsClock)
+                if (view.IsClock)
                 {
+                    popup.sClock.IsToggled = true;
                     popup.tpClock.IsVisible = true;
                     popup.tfMinute.IsVisible = false;
 
@@ -84,13 +84,22 @@ namespace SupervisorMaster.Views.Settings
                 }
                 else
                 {
+                    popup.sClock.IsToggled = false;
                     popup.tfMinute.IsVisible = true;
                     popup.tpClock.IsVisible = false;
 
                     popup.lState.Text = "SETTING COUNTDOWN";
                 }
             }
+            else
+            {
+                popup.tfMinute.IsVisible = true;
+                popup.tpClock.IsVisible = false;
 
+                popup.lState.Text = "SETTING COUNTDOWN";
+            }
+
+            await navigation.PushPopupAsync(popup);
             return await completionSource.Task;
         }
     }
