@@ -17,4 +17,3 @@ E:\Xamarin\SupervisorMaster\SupervisorMaster\BaseXamarin\BaseXamarin\obj\Release
 E:\Xamarin\SupervisorMaster\SupervisorMaster\BaseXamarin\BaseXamarin\obj\Release\netstandard2.0\BaseXamarin.csproj.CoreCompileInputs.cache
 E:\Xamarin\SupervisorMaster\SupervisorMaster\BaseXamarin\BaseXamarin\obj\Release\netstandard2.0\BaseXamarin.dll
 E:\Xamarin\SupervisorMaster\SupervisorMaster\BaseXamarin\BaseXamarin\obj\Release\netstandard2.0\BaseXamarin.pdb
-E:\Xamarin\SupervisorMaster\SupervisorMaster\BaseXamarin\BaseXamarin\obj\Release\netstandard2.0\BaseXamarin.csproj.AssemblyReference.cache
