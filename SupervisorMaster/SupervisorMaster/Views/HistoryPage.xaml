@@ -106,7 +106,7 @@
                                      VerticalOptions="FillAndExpand"/>
                                             <behaviors:Expander Grid.Column="1" Margin="20,0">
                                                 <behaviors:Expander.Header>
-                                                    <Grid HorizontalOptions="FillAndExpand">
+                                                    <Grid HorizontalOptions="Fill">
                                                         <Grid.ColumnDefinitions>
                                                             <ColumnDefinition Width="*"/>
                                                             <ColumnDefinition Width="Auto"/>

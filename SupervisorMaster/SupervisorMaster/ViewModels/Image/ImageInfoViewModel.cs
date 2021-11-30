@@ -1,31 +1,38 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace SupervisorMaster.ViewModels.Image
 {
-    [QueryProperty(nameof(ImagePath), nameof(ImagePath))]
+    [QueryProperty(nameof(ImageName), nameof(ImageName))]
     public class ImageInfoViewModel : BaseXamarin.ViewModels.BaseViewModel
     {
-        private string _imagePath;
-        private string _image;
+        private string _imageName;
+        private string imageUrl;
 
-        public string ImagePath 
-        { 
-            get => _imagePath;
-            set 
+        public string ImageName
+        {
+            get => _imageName;
+            set
             {
-                _imagePath = Uri.UnescapeDataString(value ?? string.Empty);
-                SetProperty(ref _imagePath, value);
-                Image = _imagePath;
-            } 
+                _imageName = Uri.UnescapeDataString(value ?? string.Empty);
+                SetProperty(ref _imageName, value);
+            }
         }
+        public string ImageUrl { get => imageUrl; set => SetProperty(ref imageUrl, value); }
 
-        public string Image { get => _image; set => SetProperty(ref _image, value); }
+        public ICommand PageAppearingCommand => new Command(async () =>
+        {
+            ImageUrl = await FirebaseStorage
+                     .Child(User.LocalId).Child("Screenshots").Child(ImageName).GetDownloadUrlAsync();
+        });
+
 
         public ImageInfoViewModel() : base("Image Infomation")
-        { }
-
+        {
+        }
     }
 }

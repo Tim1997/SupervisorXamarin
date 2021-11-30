@@ -34,7 +34,7 @@
     
     <TabBar>
         <ShellContent Title="History" Icon="history.png" Route="HistoryPage" ContentTemplate="{DataTemplate local:HistoryPage}" />
-        <ShellContent Title="Screenshot" Icon="history.png" Route="ImagePage" ContentTemplate="{DataTemplate local:ImagePage}" />
+        <ShellContent Title="Screenshot" Icon="image.png" Route="ImagePage" ContentTemplate="{DataTemplate local:ImagePage}" />
         <ShellContent Title="Settings" Icon="settings.png" Route="SettingsPage" ContentTemplate="{DataTemplate local:SettingsPage}" />
     </TabBar>
 

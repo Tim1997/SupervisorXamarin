@@ -1,21 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Github\\Supervisor\\SupervisorXamarin\\SupervisorMaster\\SupervisorMaster.iOS\\SupervisorMaster.iOS.csproj": {}
+    "E:\\GitClone\\SupervisorXamarin\\SupervisorMaster\\SupervisorMaster.iOS\\SupervisorMaster.iOS.csproj": {}
   },
   "projects": {
-    "D:\\Github\\Supervisor\\SupervisorXamarin\\SupervisorMaster\\BaseXamarin\\BaseXamarin\\BaseXamarin.csproj": {
+    "E:\\GitClone\\SupervisorXamarin\\SupervisorMaster\\BaseXamarin\\BaseXamarin\\BaseXamarin.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Github\\Supervisor\\SupervisorXamarin\\SupervisorMaster\\BaseXamarin\\BaseXamarin\\BaseXamarin.csproj",
+        "projectUniqueName": "E:\\GitClone\\SupervisorXamarin\\SupervisorMaster\\BaseXamarin\\BaseXamarin\\BaseXamarin.csproj",
         "projectName": "BaseXamarin",
-        "projectPath": "D:\\Github\\Supervisor\\SupervisorXamarin\\SupervisorMaster\\BaseXamarin\\BaseXamarin\\BaseXamarin.csproj",
-        "packagesPath": "C:\\Users\\Tim\\.nuget\\packages\\",
-        "outputPath": "D:\\Github\\Supervisor\\SupervisorXamarin\\SupervisorMaster\\BaseXamarin\\BaseXamarin\\obj\\",
+        "projectPath": "E:\\GitClone\\SupervisorXamarin\\SupervisorMaster\\BaseXamarin\\BaseXamarin\\BaseXamarin.csproj",
+        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
+        "outputPath": "E:\\GitClone\\SupervisorXamarin\\SupervisorMaster\\BaseXamarin\\BaseXamarin\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Tim\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.0"
@@ -81,23 +85,27 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Github\\Supervisor\\SupervisorXamarin\\SupervisorMaster\\SupervisorMaster.iOS\\SupervisorMaster.iOS.csproj": {
+    "E:\\GitClone\\SupervisorXamarin\\SupervisorMaster\\SupervisorMaster.iOS\\SupervisorMaster.iOS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Github\\Supervisor\\SupervisorXamarin\\SupervisorMaster\\SupervisorMaster.iOS\\SupervisorMaster.iOS.csproj",
+        "projectUniqueName": "E:\\GitClone\\SupervisorXamarin\\SupervisorMaster\\SupervisorMaster.iOS\\SupervisorMaster.iOS.csproj",
         "projectName": "SupervisorMaster.iOS",
-        "projectPath": "D:\\Github\\Supervisor\\SupervisorXamarin\\SupervisorMaster\\SupervisorMaster.iOS\\SupervisorMaster.iOS.csproj",
-        "packagesPath": "C:\\Users\\Tim\\.nuget\\packages\\",
-        "outputPath": "D:\\Github\\Supervisor\\SupervisorXamarin\\SupervisorMaster\\SupervisorMaster.iOS\\obj\\",
+        "projectPath": "E:\\GitClone\\SupervisorXamarin\\SupervisorMaster\\SupervisorMaster.iOS\\SupervisorMaster.iOS.csproj",
+        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
+        "outputPath": "E:\\GitClone\\SupervisorXamarin\\SupervisorMaster\\SupervisorMaster.iOS\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Tim\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "xamarinios10"
@@ -109,8 +117,8 @@
         "frameworks": {
           "xamarinios10": {
             "projectReferences": {
-              "D:\\Github\\Supervisor\\SupervisorXamarin\\SupervisorMaster\\SupervisorMaster\\SupervisorMaster.csproj": {
-                "projectPath": "D:\\Github\\Supervisor\\SupervisorXamarin\\SupervisorMaster\\SupervisorMaster\\SupervisorMaster.csproj"
+              "E:\\GitClone\\SupervisorXamarin\\SupervisorMaster\\SupervisorMaster\\SupervisorMaster.csproj": {
+                "projectPath": "E:\\GitClone\\SupervisorXamarin\\SupervisorMaster\\SupervisorMaster\\SupervisorMaster.csproj"
               }
             }
           }
@@ -166,18 +174,22 @@
         }
       }
     },
-    "D:\\Github\\Supervisor\\SupervisorXamarin\\SupervisorMaster\\SupervisorMaster\\SupervisorMaster.csproj": {
+    "E:\\GitClone\\SupervisorXamarin\\SupervisorMaster\\SupervisorMaster\\SupervisorMaster.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Github\\Supervisor\\SupervisorXamarin\\SupervisorMaster\\SupervisorMaster\\SupervisorMaster.csproj",
+        "projectUniqueName": "E:\\GitClone\\SupervisorXamarin\\SupervisorMaster\\SupervisorMaster\\SupervisorMaster.csproj",
         "projectName": "SupervisorMaster",
-        "projectPath": "D:\\Github\\Supervisor\\SupervisorXamarin\\SupervisorMaster\\SupervisorMaster\\SupervisorMaster.csproj",
-        "packagesPath": "C:\\Users\\Tim\\.nuget\\packages\\",
-        "outputPath": "D:\\Github\\Supervisor\\SupervisorXamarin\\SupervisorMaster\\SupervisorMaster\\obj\\",
+        "projectPath": "E:\\GitClone\\SupervisorXamarin\\SupervisorMaster\\SupervisorMaster\\SupervisorMaster.csproj",
+        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
+        "outputPath": "E:\\GitClone\\SupervisorXamarin\\SupervisorMaster\\SupervisorMaster\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Tim\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.0"
@@ -190,8 +202,8 @@
           "netstandard2.0": {
             "targetAlias": "netstandard2.0",
             "projectReferences": {
-              "D:\\Github\\Supervisor\\SupervisorXamarin\\SupervisorMaster\\BaseXamarin\\BaseXamarin\\BaseXamarin.csproj": {
-                "projectPath": "D:\\Github\\Supervisor\\SupervisorXamarin\\SupervisorMaster\\BaseXamarin\\BaseXamarin\\BaseXamarin.csproj"
+              "E:\\GitClone\\SupervisorXamarin\\SupervisorMaster\\BaseXamarin\\BaseXamarin\\BaseXamarin.csproj": {
+                "projectPath": "E:\\GitClone\\SupervisorXamarin\\SupervisorMaster\\BaseXamarin\\BaseXamarin\\BaseXamarin.csproj"
               }
             }
           }
@@ -259,7 +271,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -22,8 +22,9 @@
     </ContentPage.Behaviors>
     
     <ContentPage.Content>
-        <Grid>
-            <Image Source="{Binding Image}" Aspect="AspectFill"/>
-        </Grid>
+        <Frame Padding="0" HasShadow="true" IsClippedToBounds="True" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Image Source="{Binding ImageUrl}" Aspect="AspectFill"
+                   VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+        </Frame>
     </ContentPage.Content>
 </ContentPage>

@@ -34,7 +34,7 @@ namespace SupervisorMaster.ViewModels
 
         public ICommand ImageInfoCommand => new Command<ImageView>(async (imageview) =>
         {
-            await Shell.Current.GoToAsync($"{nameof(ImageInfoPage)}?{nameof(ImageInfoViewModel.ImagePath)}={imageview.ImageUrl}");
+            await Shell.Current.GoToAsync($"{nameof(ImageInfoPage)}?{nameof(ImageInfoViewModel.ImageName)}={imageview.ImageName}");
         });
         #endregion
 
@@ -87,6 +87,8 @@ namespace SupervisorMaster.ViewModels
                         UploadTime = DateTime.Now,
                     });
                 }
+
+                var x = ImageViews[0].ImageUrl;
             }
             catch (Exception ex)
             {

@@ -7087,21 +7087,26 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Tim\\.nuget\\packages\\": {}
+    "C:\\Users\\ADMIN\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Github\\Supervisor\\SupervisorXamarin\\SupervisorMaster\\SupervisorMaster.iOS\\SupervisorMaster.iOS.csproj",
+      "projectUniqueName": "E:\\GitClone\\SupervisorXamarin\\SupervisorMaster\\SupervisorMaster.iOS\\SupervisorMaster.iOS.csproj",
       "projectName": "SupervisorMaster.iOS",
-      "projectPath": "D:\\Github\\Supervisor\\SupervisorXamarin\\SupervisorMaster\\SupervisorMaster.iOS\\SupervisorMaster.iOS.csproj",
-      "packagesPath": "C:\\Users\\Tim\\.nuget\\packages\\",
-      "outputPath": "D:\\Github\\Supervisor\\SupervisorXamarin\\SupervisorMaster\\SupervisorMaster.iOS\\obj\\",
+      "projectPath": "E:\\GitClone\\SupervisorXamarin\\SupervisorMaster\\SupervisorMaster.iOS\\SupervisorMaster.iOS.csproj",
+      "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
+      "outputPath": "E:\\GitClone\\SupervisorXamarin\\SupervisorMaster\\SupervisorMaster.iOS\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Tim\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "xamarinios10"
@@ -7113,8 +7118,8 @@
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "D:\\Github\\Supervisor\\SupervisorXamarin\\SupervisorMaster\\SupervisorMaster\\SupervisorMaster.csproj": {
-              "projectPath": "D:\\Github\\Supervisor\\SupervisorXamarin\\SupervisorMaster\\SupervisorMaster\\SupervisorMaster.csproj"
+            "E:\\GitClone\\SupervisorXamarin\\SupervisorMaster\\SupervisorMaster\\SupervisorMaster.csproj": {
+              "projectPath": "E:\\GitClone\\SupervisorXamarin\\SupervisorMaster\\SupervisorMaster\\SupervisorMaster.csproj"
             }
           }
         }
