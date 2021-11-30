@@ -23,7 +23,7 @@
     </ContentPage.Behaviors>
 
     <ContentPage.Content>
-        <Grid>
+        <Grid BackgroundColor="{StaticResource BlackWhite}">
             <Frame Padding="0" CornerRadius="20"
                    HasShadow="true" IsClippedToBounds="True" 
                    VerticalOptions="Start" HeightRequest="80"
@@ -38,7 +38,6 @@
                 <!--#region Header -->
                 <Grid Grid.Row="0" ColumnSpacing="0"
                       HorizontalOptions="FillAndExpand"
-                      RowDefinitions="auto, auto, auto, auto, auto"
                       VerticalOptions="FillAndExpand"
                       x:Name="gMain">
 
@@ -62,7 +61,8 @@
                                         <Span
                                         FontFamily="MuliBlack"
                                         FontSize="20"
-                                        Text="WEBSITE" />
+                                        Text="WEBSITE"
+                                            TextColor="White"/>
                                         <Span
                                         FontFamily="MuliBlack"
                                         FontSize="20"
@@ -80,92 +80,90 @@
 
                 <!--#region Title -->
                 <Label Grid.Row="1" FontFamily="MuliBlack" Text="TODAY HISTORY" FontSize="20" 
-                       VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand"
-                       Margin="20,0"/>
+                       VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" TextColor="White"
+                       Margin="20,20,20,0"/>
                 <!--#endregion-->
 
                 <!--#region Content History -->
-                <ActivityIndicator Grid.Row="2" HorizontalOptions="Center" VerticalOptions="Center"
-                               IsRunning="{Binding IsBusy}" Color="{StaticResource Yellow}" />
-                
-                <!--#region Content -->
-                <CollectionView Grid.Row="2" Margin="25,10,25,5" IsVisible="{Binding !IsBusy}"
-                            HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
-                            SelectionMode="None" ItemsSource="{Binding Agendas}">
-                    <CollectionView.ItemsLayout>
-                        <LinearItemsLayout Orientation="Vertical" ItemSpacing="10"/>
-                    </CollectionView.ItemsLayout>
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate>
-                            <cardview:CardsView BackgroundColor="{StaticResource LightGray}" Margin="0"
+                <RefreshView Grid.Row="2" RefreshColor="{StaticResource Yellow}" x:Name="gView"
+                             Command="{Binding LoadAgendasCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+                    <ScrollView>
+                        <FlexLayout Direction="Row" Wrap="Wrap" AlignContent="Start" AlignItems="Start"
+                                    JustifyContent="SpaceAround" BindableLayout.ItemsSource="{Binding Agendas}">
+                            <!--<FlexLayout.Behaviors>
+                                <behaviors:FlexLayoutItemTappedBehavior Command="{Binding DetailClassroomCommand}" Paramater="{Binding .}"/>
+                            </FlexLayout.Behaviors>-->
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate>
+                                    <cardview:CardsView BackgroundColor="{StaticResource LightGray}" Margin="20,5"
                                                 HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                                <Grid VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto"/>
-                                        <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
-                                    <BoxView BackgroundColor="{Binding Color}" WidthRequest="3" HorizontalOptions="Start"
-                                     VerticalOptions="FillAndExpand"/>
-                                    <behaviors:Expander Grid.Column="1">
-                                        <behaviors:Expander.Header>
-                                            <Grid HorizontalOptions="FillAndExpand">
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="*"/>
-                                                    <ColumnDefinition Width="Auto"/>
-                                                    <ColumnDefinition Width="3.5*"/>
-                                                </Grid.ColumnDefinitions>
-                                                <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-                                                    <Label Text="{Binding DateStart, StringFormat='{0:hh:mm tt}'}" TextColor="Black" FontSize="15" 
-                                                            HorizontalOptions="Center"/>
-                                                    <Label Text="|" HorizontalOptions="Center" Margin="0,-9,0,0"/>
-                                                    <Label Text="{Binding DateEnd, StringFormat='{0:hh:mm tt}'}" TextColor="Black" FontSize="15" 
-                                                            HorizontalOptions="Center" Margin="0,-9,0,0"/>
-                                                </StackLayout>
-                                                <BoxView Grid.Column="1" BackgroundColor="#F2F4F8" WidthRequest="1" HorizontalOptions="Start" 
-                                                 VerticalOptions="FillAndExpand"/>
-                                                <StackLayout Grid.Column="2" HorizontalOptions="Start" VerticalOptions="Center" Margin="20">
-                                                    <Label Text="{Binding Topic}" TextColor="Black" FontSize="15"/>
-                                                    <Label Text="{Binding Description}" TextColor="#2F3246" FontSize="12" Margin="0,-8,0,0"/>
-                                                </StackLayout>
-                                            </Grid>
-                                        </behaviors:Expander.Header>
-                                        <Grid HorizontalOptions="FillAndExpand">
+                                        <Grid VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
                                             <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="*"/>
                                                 <ColumnDefinition Width="Auto"/>
-                                                <ColumnDefinition Width="3.5*"/>
+                                                <ColumnDefinition Width="*"/>
                                             </Grid.ColumnDefinitions>
-                                            <BoxView Grid.Column="1" BackgroundColor="#F2F4F8" WidthRequest="1" HorizontalOptions="Start" 
+                                            <BoxView BackgroundColor="{Binding Color}" WidthRequest="3" HorizontalOptions="Start"
+                                     VerticalOptions="FillAndExpand"/>
+                                            <behaviors:Expander Grid.Column="1" Margin="20,0">
+                                                <behaviors:Expander.Header>
+                                                    <Grid HorizontalOptions="FillAndExpand">
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="*"/>
+                                                            <ColumnDefinition Width="Auto"/>
+                                                            <ColumnDefinition Width="3.5*"/>
+                                                        </Grid.ColumnDefinitions>
+                                                        <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                                                            <Label Text="{Binding DateStart, StringFormat='{0:hh:mm tt}'}" TextColor="Black" FontSize="15" 
+                                                            HorizontalOptions="Center"/>
+                                                            <Label Text="|" HorizontalOptions="Center" Margin="0,-9,0,0"/>
+                                                            <Label Text="{Binding DateEnd, StringFormat='{0:hh:mm tt}'}" TextColor="Black" FontSize="15" 
+                                                            HorizontalOptions="Center" Margin="0,-9,0,0"/>
+                                                        </StackLayout>
+                                                        <BoxView Grid.Column="1" BackgroundColor="#F2F4F8" WidthRequest="1" HorizontalOptions="Start" 
+                                                 VerticalOptions="FillAndExpand"/>
+                                                        <StackLayout Grid.Column="2" HorizontalOptions="Start" VerticalOptions="Center" Margin="20">
+                                                            <Label Text="{Binding Topic}" TextColor="Black" FontSize="15"/>
+                                                            <Label Text="{Binding Description}" TextColor="#2F3246" FontSize="12" Margin="0,-8,0,0"/>
+                                                        </StackLayout>
+                                                    </Grid>
+                                                </behaviors:Expander.Header>
+                                                <Grid HorizontalOptions="FillAndExpand">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"/>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                        <ColumnDefinition Width="3.5*"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <BoxView Grid.Column="1" BackgroundColor="#F2F4F8" WidthRequest="1" HorizontalOptions="Start" 
                                              VerticalOptions="FillAndExpand"/>
-                                            <StackLayout Grid.Column="2" Spacing="10">
-                                                <StackLayout BindableLayout.ItemsSource="{Binding Historys}" HorizontalOptions="Start" VerticalOptions="Center" Margin="20,0,0,20">
-                                                    <Label Text="DETAILS" TextColor="Black" Opacity="0.5" FontSize="10" Margin="20,0"/>
-                                                    <BindableLayout.ItemTemplate>
-                                                        <DataTemplate>
-                                                            <Label TextColor="#2F3246" FontSize="12">
-                                                                <Label.FormattedText>
-                                                                    <FormattedString>
-                                                                        <FormattedString.Spans>
-                                                                            <Span Text="{Binding VisitedTime, StringFormat='{0:hh:mm tt}'}"/>
-                                                                            <Span Text=" - "/>
-                                                                            <Span Text="{Binding Title}" FontAttributes="Bold"/>
-                                                                        </FormattedString.Spans>
-                                                                    </FormattedString>
-                                                                </Label.FormattedText>
-                                                            </Label>
-                                                        </DataTemplate>
-                                                    </BindableLayout.ItemTemplate>
-                                                </StackLayout>
-                                            </StackLayout>
+                                                    <StackLayout Grid.Column="2" Spacing="10">
+                                                        <StackLayout BindableLayout.ItemsSource="{Binding Historys}" HorizontalOptions="Start" VerticalOptions="Center" Margin="20,0,0,20">
+                                                            <Label Text="DETAILS" TextColor="Black" Opacity="0.5" FontSize="10" Margin="20,0"/>
+                                                            <BindableLayout.ItemTemplate>
+                                                                <DataTemplate>
+                                                                    <Label TextColor="#2F3246" FontSize="12">
+                                                                        <Label.FormattedText>
+                                                                            <FormattedString>
+                                                                                <FormattedString.Spans>
+                                                                                    <Span Text="{Binding VisitedTime, StringFormat='{0:hh:mm tt}'}"/>
+                                                                                    <Span Text=" - "/>
+                                                                                    <Span Text="{Binding Title}" FontAttributes="Bold"/>
+                                                                                </FormattedString.Spans>
+                                                                            </FormattedString>
+                                                                        </Label.FormattedText>
+                                                                    </Label>
+                                                                </DataTemplate>
+                                                            </BindableLayout.ItemTemplate>
+                                                        </StackLayout>
+                                                    </StackLayout>
+                                                </Grid>
+                                            </behaviors:Expander>
                                         </Grid>
-                                    </behaviors:Expander>
-                                </Grid>
-                            </cardview:CardsView>
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>
-
-                <!--#endregion-->
+                                    </cardview:CardsView>
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </FlexLayout>
+                    </ScrollView>
+                </RefreshView>
                 <!--#endregion-->
             </Grid>
         </Grid>

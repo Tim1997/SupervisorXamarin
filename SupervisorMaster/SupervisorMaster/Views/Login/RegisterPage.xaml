@@ -16,8 +16,7 @@
     
     <ContentPage.Content>
         <Grid>
-            <Frame Padding="0" CornerRadius="10"
-                       HasShadow="true" IsClippedToBounds="True">
+            <Frame Padding="0" HasShadow="true" IsClippedToBounds="True">
                 <Image Source="signupbackground" BackgroundColor="{StaticResource LightPrimary}" Aspect="AspectFill"/>
             </Frame>
             
@@ -26,24 +25,33 @@
                HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
                 <StackLayout Margin="0" Padding="0">
                     <material:MaterialTextField Placeholder="Display name" 
-                                        TextColor="White" FloatingPlaceholderColor="{StaticResource Yellow}" 
-                                        PlaceholderColor="White" Margin="0,8"
-                                        Text="{Binding DisplayName}" InputType="Default"
-                                        TintColor="{StaticResource Gray}"/>
+                                                CardBackgroundColor="Transparent"
+                                                TextColor="White" FloatingPlaceholderColor="{StaticResource Yellow}" 
+                                                PlaceholderColor="{StaticResource Yellow}" Margin="0,8"
+                                                Text="{Binding DisplayName}" InputType="Default"
+                                                ShouldAnimateUnderline="True"
+                                                AlwaysShowUnderline="True"
+                                                TintColor="{StaticResource Yellow}"/>
 
                     <material:MaterialTextField Placeholder="Email" 
-                                        TextColor="White" FloatingPlaceholderColor="{StaticResource Yellow}" 
-                                        PlaceholderColor="White" Margin="0,8"
-                                        Text="{Binding Email}" InputType="Email"
-                                        ErrorText="{Binding ErrorEmail}" ErrorColor="OrangeRed" HasError="{Binding IsErrorEmail}"
-                                        TintColor="{StaticResource Gray}"/>
+                                                CardBackgroundColor="Transparent"
+                                                TextColor="White" FloatingPlaceholderColor="{StaticResource Yellow}" 
+                                                PlaceholderColor="{StaticResource Yellow}" Margin="0,8"
+                                                Text="{Binding Email}" InputType="Email"
+                                                ShouldAnimateUnderline="True"
+                                                AlwaysShowUnderline="True"
+                                                ErrorText="{Binding ErrorEmail}" ErrorColor="OrangeRed" HasError="{Binding IsErrorEmail}"
+                                                TintColor="{StaticResource Yellow}"/>
 
                     <material:MaterialTextField Placeholder="Password"
-                                        TextColor="White" FloatingPlaceholderColor="{StaticResource Yellow}" 
-                                        PlaceholderColor="White" Margin="0,8"
-                                        Text="{Binding Password}" InputType="Password"
-                                        ErrorText="{Binding ErrorPassword}" ErrorColor="OrangeRed" HasError="{Binding IsErrorPassword}"
-                                        TintColor="{StaticResource Gray}"/>
+                                                CardBackgroundColor="Transparent"
+                                                TextColor="White" FloatingPlaceholderColor="{StaticResource Yellow}" 
+                                                PlaceholderColor="{StaticResource Yellow}" Margin="0,8"
+                                                Text="{Binding Password}" InputType="Password"
+                                                ShouldAnimateUnderline="True"
+                                                AlwaysShowUnderline="True"
+                                                ErrorText="{Binding ErrorPassword}" ErrorColor="OrangeRed" HasError="{Binding IsErrorPassword}"
+                                                TintColor="{StaticResource Yellow}"/>
 
                     <material:MaterialButton BackgroundColor="{StaticResource SupperDarkPrimary}" HorizontalOptions="FillAndExpand" 
                                                         Text="Sign up" TextColor="White" VerticalOptions="Center" Margin="20,10,20,0"

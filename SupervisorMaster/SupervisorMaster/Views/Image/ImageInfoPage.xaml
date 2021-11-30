@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             
+             Shell.NavBarIsVisible="true"
+             xmlns:vm="clr-namespace:SupervisorMaster.ViewModels.Image"
+             xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+             xmlns:icon="clr-namespace:SupervisorMaster.Helpers"
+             xmlns:cardview="clr-namespace:PanCardView;assembly=PanCardView"
+             xmlns:behaviors="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             Title="{Binding Title}"
+             
+             x:Class="SupervisorMaster.Views.Image.ImageInfoPage">
+    <ContentPage.BindingContext>
+        <vm:ImageInfoViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Behaviors>
+        <xct:EventToCommandBehavior
+                EventName="Appearing"
+                Command="{Binding PageAppearingCommand}" />
+    </ContentPage.Behaviors>
+    
+    <ContentPage.Content>
+        <Grid>
+            <Image Source="{Binding Image}" Aspect="AspectFill"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             
+             Shell.NavBarIsVisible="False"
+             xmlns:vm="clr-namespace:SupervisorMaster.ViewModels"
+             xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+             xmlns:icon="clr-namespace:SupervisorMaster.Helpers"
+             xmlns:cardview="clr-namespace:PanCardView;assembly=PanCardView"
+             xmlns:behaviors="clr-namespace:SupervisorMaster.Controls"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             
+             x:Class="SupervisorMaster.Views.ImagePage">
+    <ContentPage.BindingContext>
+        <vm:ImageViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Behaviors>
+        <xct:EventToCommandBehavior
+                EventName="Appearing"
+                Command="{Binding PageAppearingCommand}" />
+    </ContentPage.Behaviors>
+    
+    <ContentPage.Content>
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="Fill"
+              RowSpacing="0" BackgroundColor="{StaticResource BlackWhite}" Margin="0,-10,0,0">
+
+            <!--#region Layout -->
+            <Frame Padding="0" CornerRadius="20"
+                   HasShadow="true" IsClippedToBounds="True" 
+                   VerticalOptions="Start" HeightRequest="80"
+                   BackgroundColor="{StaticResource SupperGray}"/>
+
+            <Frame Padding="0"
+                   HasShadow="true" IsClippedToBounds="True" 
+                   VerticalOptions="Start" HeightRequest="60"
+                   BackgroundColor="{StaticResource SupperGray}"/>
+            <!--#endregion-->
+
+            <Grid RowDefinitions="auto, auto, *" >
+
+                <!--#region Header -->
+                <Grid Grid.Row="0" ColumnSpacing="0"
+                      HorizontalOptions="FillAndExpand"
+                      VerticalOptions="FillAndExpand"
+                      x:Name="gMain">
+
+                    <!--#region Header -->
+                    <Grid Grid.Row="0" ColumnDefinitions="*, auto, auto, auto">
+                        <!--#region Title-->
+                        <StackLayout
+                        Grid.Row="0"
+                        Margin="20,30,20,0"
+                        HorizontalOptions="FillAndExpand"
+                        Orientation="Horizontal">
+                            <Image
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Aspect="AspectFit"
+                            HeightRequest="40" WidthRequest="40" 
+                            Source="logo"/>
+                            <Label VerticalOptions="Center">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span
+                                        FontFamily="MuliBlack"
+                                        FontSize="20"
+                                        Text="LAPTOP" 
+                                        TextColor="White"/>
+                                        <Span
+                                        FontFamily="MuliBlack"
+                                        FontSize="20"
+                                        Text=" SCREENSHOT"
+                                        TextColor="{StaticResource Yellow}" />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </StackLayout>
+                        <!--#endregion-->
+                    </Grid>
+                    <!--#endregion-->
+                </Grid>
+                <!--#endregion-->
+
+                <!--#region Title -->
+                <Label Grid.Row="1" FontFamily="MuliBlack" Text="TODAY SCREENSHOT" FontSize="20" 
+                       VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" TextColor="White"
+                       Margin="20,20,20,0"/>
+                <!--#endregion-->
+
+                <!--#region Classroom -->
+                <RefreshView Grid.Row="2" Margin="20,-5,20,0"  RefreshColor="{StaticResource Yellow}" x:Name="gView" 
+                             Command="{Binding LoadImageViewsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+                    <ScrollView>
+                        <FlexLayout Direction="Row" Wrap="Wrap" AlignContent="Start" AlignItems="Start"
+                                    JustifyContent="SpaceBetween"  BindableLayout.ItemsSource="{Binding ImageViews}">
+                            <FlexLayout.Behaviors>
+                                <behaviors:FlexLayoutItemTappedBehavior Command="{Binding ImageInfoCommand}" Paramater="{Binding .}"/>
+                            </FlexLayout.Behaviors>
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate>
+                                    <material:MaterialCard Margin="5" HasShadow="True" CornerRadius="10" BorderColor="{StaticResource LightGray}"
+                                                           WidthRequest="{Binding Path=BindingContext.WidthCard, Source={x:Reference Name=gView}}" 
+                                                           HeightRequest="{Binding Path=BindingContext.HeightCard, Source={x:Reference Name=gView}}"
+                                                           Elevation="8" IsClickable="True" BackgroundColor="{StaticResource LightGray}">
+                                        <Grid RowDefinitions="*,auto">
+                                            <Image Source="{Binding ImageUrl}" Aspect="AspectFill" BackgroundColor="Red"
+                                                   HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
+
+                                            <StackLayout Grid.Row="1" HorizontalOptions="End" 
+                                                         VerticalOptions="End" Orientation="Horizontal" Margin="0,0,-15,-15">
+                                                <Label FontFamily="MaterialIcons" Text="{x:Static icon:FontIcons.Timelapse}" FontSize="Subtitle"
+                                                           VerticalOptions="Center" HorizontalOptions="Center" TextColor="{StaticResource Yellow}"/>
+                                                <Label Text="{Binding UploadTime, StringFormat='{0:dd/MM/yyyy}',TargetNullValue='N/A'}" FontSize="Micro" Margin="-3,0,0,0"
+                                                           VerticalOptions="Center" HorizontalOptions="Center" TextColor="{StaticResource Yellow}"/>
+                                            </StackLayout>
+                                        </Grid>
+                                    </material:MaterialCard>
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </FlexLayout>
+                    </ScrollView>
+                </RefreshView>
+                <!--#endregion-->
+                <!--#endregion-->
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

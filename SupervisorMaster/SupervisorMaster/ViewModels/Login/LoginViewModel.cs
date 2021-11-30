@@ -79,6 +79,7 @@ namespace SupervisorMaster.ViewModels
                 FisebaseToken = content.FirebaseToken;
                 User = content.User;
                 await Shell.Current.GoToAsync($"//{nameof(HistoryPage)}");
+                //await Shell.Current.GoToAsync($"//{nameof(ImagePage)}");
             }
             catch (FirebaseAuthException ex)
             {
@@ -145,7 +146,7 @@ namespace SupervisorMaster.ViewModels
             isFirstRun = true;
 
             Email = "timbkhn@gmail.com";
-            Password = "12345678";
+            Password = "123456";
         }
 
         #region Method

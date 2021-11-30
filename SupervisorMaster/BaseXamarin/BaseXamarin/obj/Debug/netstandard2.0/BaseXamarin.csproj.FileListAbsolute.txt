@@ -44,3 +44,12 @@ E:\Xamarin\SupervisorMaster\SupervisorMaster\BaseXamarin\BaseXamarin\obj\Debug\n
 E:\Xamarin\SupervisorMaster\SupervisorMaster\BaseXamarin\BaseXamarin\obj\Debug\netstandard2.0\BaseXamarin.csproj.CoreCompileInputs.cache
 E:\Xamarin\SupervisorMaster\SupervisorMaster\BaseXamarin\BaseXamarin\obj\Debug\netstandard2.0\BaseXamarin.dll
 E:\Xamarin\SupervisorMaster\SupervisorMaster\BaseXamarin\BaseXamarin\obj\Debug\netstandard2.0\BaseXamarin.pdb
+D:\Github\Supervisor\SupervisorXamarin\SupervisorMaster\BaseXamarin\BaseXamarin\bin\Debug\netstandard2.0\BaseXamarin.deps.json
+D:\Github\Supervisor\SupervisorXamarin\SupervisorMaster\BaseXamarin\BaseXamarin\bin\Debug\netstandard2.0\BaseXamarin.dll
+D:\Github\Supervisor\SupervisorXamarin\SupervisorMaster\BaseXamarin\BaseXamarin\bin\Debug\netstandard2.0\BaseXamarin.pdb
+D:\Github\Supervisor\SupervisorXamarin\SupervisorMaster\BaseXamarin\BaseXamarin\obj\Debug\netstandard2.0\BaseXamarin.GeneratedMSBuildEditorConfig.editorconfig
+D:\Github\Supervisor\SupervisorXamarin\SupervisorMaster\BaseXamarin\BaseXamarin\obj\Debug\netstandard2.0\BaseXamarin.AssemblyInfoInputs.cache
+D:\Github\Supervisor\SupervisorXamarin\SupervisorMaster\BaseXamarin\BaseXamarin\obj\Debug\netstandard2.0\BaseXamarin.AssemblyInfo.cs
+D:\Github\Supervisor\SupervisorXamarin\SupervisorMaster\BaseXamarin\BaseXamarin\obj\Debug\netstandard2.0\BaseXamarin.csproj.CoreCompileInputs.cache
+D:\Github\Supervisor\SupervisorXamarin\SupervisorMaster\BaseXamarin\BaseXamarin\obj\Debug\netstandard2.0\BaseXamarin.dll
+D:\Github\Supervisor\SupervisorXamarin\SupervisorMaster\BaseXamarin\BaseXamarin\obj\Debug\netstandard2.0\BaseXamarin.pdb

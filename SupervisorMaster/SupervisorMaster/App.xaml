@@ -17,6 +17,7 @@
             <Color x:Key="LightGray">#97989b</Color>
             <Color x:Key="SupperGray">#282a35</Color>
             <Color x:Key="Dialog">#1b1b1b</Color>
+            <Color x:Key="BlackWhite">#666666</Color>
 
             <Style x:Key="daysTitleLabelStyle" TargetType="Label">
                 <Setter Property="FontAttributes" Value="Bold" />

@@ -15,8 +15,7 @@
     <ContentPage.Content>
         <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
             <Grid>
-                <Frame Padding="0" CornerRadius="10"
-                       HasShadow="true" IsClippedToBounds="True">
+                <Frame Padding="0" HasShadow="true" IsClippedToBounds="True">
                     <Image Source="loginbackground" BackgroundColor="{StaticResource LightPrimary}" Aspect="AspectFill"/>
                 </Frame>
                 
@@ -39,20 +38,24 @@
                             <!--#endregion-->
 
                             <material:MaterialTextField Placeholder="Email" 
-                                                        CardBackgroundColor="{StaticResource LightGray}" 
+                                                        CardBackgroundColor="Transparent" 
                                                         TextColor="White" FloatingPlaceholderColor="{StaticResource Yellow}" 
-                                                        PlaceholderColor="White" 
+                                                        PlaceholderColor="{StaticResource Yellow}" 
                                                         Text="{Binding Email}" InputType="Email"
+                                                        ShouldAnimateUnderline="True"
+                                                        AlwaysShowUnderline="True"
                                                         ErrorText="{Binding ErrorEmail}" ErrorColor="OrangeRed" HasError="{Binding IsErrorEmail}"
-                                                        TintColor="{StaticResource Gray}"/>
+                                                        TintColor="{StaticResource Yellow}"/>
                             
                             <material:MaterialTextField Placeholder="Password"
-                                                        CardBackgroundColor="{StaticResource LightGray}" 
+                                                        CardBackgroundColor="Transparent" 
                                                         TextColor="White" FloatingPlaceholderColor="{StaticResource Yellow}" 
-                                                        PlaceholderColor="White"
+                                                        PlaceholderColor="{StaticResource Yellow}"
+                                                        ShouldAnimateUnderline="True"
+                                                        AlwaysShowUnderline="True"
                                                         Text="{Binding Password}" InputType="Password"
                                                         ErrorText="{Binding ErrorPassword}" ErrorColor="OrangeRed" HasError="{Binding IsErrorPassword}"
-                                                        TintColor="{StaticResource Gray}"/>
+                                                        TintColor="{StaticResource Yellow}"/>
                             <Label Text="Forget your password?" HorizontalOptions="End" TextColor="{StaticResource LightGray}">
                                 <Label.GestureRecognizers>
                                     <TapGestureRecognizer Command="{Binding Path=BindingContext.ForgetPasswordCommand, Source={x:Reference Name=gMain}}"/>

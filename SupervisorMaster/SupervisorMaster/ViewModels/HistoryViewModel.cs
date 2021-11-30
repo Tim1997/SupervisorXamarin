@@ -24,19 +24,35 @@ namespace SupervisorMaster.ViewModels
         public ObservableCollection<Agenda> Agendas { get => agendas; set => SetProperty(ref agendas, value); }
         #endregion
 
-        #region Command
+        #region Command 
+        public ICommand LoadAgendasCommand { get; set; }
+
         public ICommand PageAppearingCommand => new Command(async () =>
         {
-            await LoadItemAsync();
+            IsBusy = true;
         });
         #endregion
 
         public HistoryViewModel() : base("")
         {
+            Init();
+            /////////////////////////////////
+
+            LoadAgendasCommand = new Command(async () => await ExecuteLoadAgendasCommand());
+        }
+
+       
+        #region Method
+        void Init()
+        {
             Agendas = new ObservableCollection<Agenda>();
         }
 
-        #region Method
+        async Task ExecuteLoadAgendasCommand()
+        {
+            await LoadItemAsync();
+        }
+
         private void AddAgenda(List<HistoryItemView> histories)
         {
             Agendas?.Clear();
@@ -76,7 +92,6 @@ namespace SupervisorMaster.ViewModels
 
         private async Task LoadItemAsync()
         {
-            var loadingDialog = await MaterialDialog.Instance.LoadingDialogAsync(message: "Loading");
             IsBusy = true;
 
             try
@@ -93,23 +108,13 @@ namespace SupervisorMaster.ViewModels
                     });
                 AddAgenda(lHistory.ToList());
             }
-            catch (FirebaseAuthException ex)
+            catch (Exception ex)
             {
-                if (ex.ResponseData == "N/A")
-                    await MaterialDialog.Instance.SnackbarAsync(message: "Internet connection error",
-                                     msDuration: MaterialSnackbar.DurationLong);
-                else
-                {
-                    var response = JsonConvert.DeserializeObject<ResponseFirebase>(ex.ResponseData);
-
-                    await MaterialDialog.Instance.SnackbarAsync(message: response.error.message,
-                                         msDuration: MaterialSnackbar.DurationLong);
-                }
+                Debug.WriteLine(ex);
             }
             finally
             {
                 IsBusy = false;
-                await loadingDialog.DismissAsync();
             }
         }
         #endregion
