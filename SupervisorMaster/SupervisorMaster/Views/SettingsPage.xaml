@@ -61,7 +61,7 @@
             <!--#region Setting content -->
             <StackLayout x:Name="sSetting" Grid.Row="1" Margin="0,15">
                 <Label FontFamily="MuliBlack" Text="CONTENT" FontSize="20" 
-                       Margin="20,0"/>
+                       Margin="20,0" TextColor="White"/>
                 <!--#region Timer -->
                 <Frame BackgroundColor="{StaticResource SupperGray}" Padding="10"
                        HasShadow="true" IsClippedToBounds="True" BorderColor="{StaticResource BlackWhite}">
@@ -119,7 +119,7 @@
                 <!--#endregion-->
 
                 <Label FontFamily="MuliBlack" Text="PREFERENCES" FontSize="20" 
-                       Margin="20,10,20,0"/>
+                       Margin="20,10,20,0" TextColor="White"/>
 
                 <!--#region Logout -->
                 <Frame BackgroundColor="{StaticResource SupperGray}" Padding="10"

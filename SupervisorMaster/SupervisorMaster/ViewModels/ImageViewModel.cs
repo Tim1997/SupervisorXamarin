@@ -50,7 +50,7 @@ namespace SupervisorMaster.ViewModels
         {
             ImageViews = new ObservableCollection<ImageView>();
             var width = Application.Current.MainPage.Width;
-            HeightCard = WidthCard = width * 0.35;
+            HeightCard = WidthCard = width * 0.3;
         }
 
         async Task ExecuteLoadImageViewsCommand()
@@ -61,34 +61,34 @@ namespace SupervisorMaster.ViewModels
             {
                 ImageViews?.Clear();
 
-                //var limage = (await FirebaseDatabase
-                //    .Child(User.LocalId)
-                //    .Child("Images")
-                //    .OnceAsync<ImageView>()).Select(x => new ImageView
-                //    {
-                //        Id = x.Object.Id,
-                //        ImageName = x.Object.ImageName,
-                //        ImageUrl = x.Object.ImageUrl,
-                //        UploadTime = x.Object.UploadTime,
-                //    });
-
-                //foreach (var item in limage)
-                //{
-                //    ImageViews.Add(item);
-                //}
-
-                for (int i = 0; i < 1; i++)
-                {
-                    ImageViews.Add(new ImageView
+                var limage = (await FirebaseDatabase
+                    .Child(User.LocalId)
+                    .Child("Images")
+                    .OnceAsync<ImageView>()).Select(x => new ImageView
                     {
-                        Id = Guid.NewGuid().ToString(),
-                        ImageName = i.ToString(),
-                        ImageUrl = User.PhotoUrl,
-                        UploadTime = DateTime.Now,
+                        Id = x.Object.Id,
+                        ImageName = x.Object.ImageName,
+                        ImageUrl = x.Object.ImageUrl,
+                        UploadTime = x.Object.UploadTime,
                     });
+
+                foreach (var item in limage)
+                {
+                    ImageViews.Add(item);
                 }
 
-                var x = ImageViews[0].ImageUrl;
+                //for (int i = 0; i < 1; i++)
+                //{
+                //    ImageViews.Add(new ImageView
+                //    {
+                //        Id = Guid.NewGuid().ToString(),
+                //        ImageName = i.ToString(),
+                //        ImageUrl = User.PhotoUrl,
+                //        UploadTime = DateTime.Now,
+                //    });
+                //}
+
+                //var x = ImageViews[0].ImageUrl;
             }
             catch (Exception ex)
             {

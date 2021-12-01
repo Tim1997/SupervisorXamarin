@@ -22,9 +22,7 @@
     </ContentPage.Behaviors>
     
     <ContentPage.Content>
-        <Frame Padding="0" HasShadow="true" IsClippedToBounds="True" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-            <Image Source="{Binding ImageUrl}" Aspect="AspectFill"
-                   VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
-        </Frame>
+        <Image Source="{Binding ImageUrl}" Aspect="AspectFit" Rotation="90"
+                   VerticalOptions="Fill" HorizontalOptions="Fill" IsAnimationPlaying="True" Scale="1.5"/>
     </ContentPage.Content>
 </ContentPage>

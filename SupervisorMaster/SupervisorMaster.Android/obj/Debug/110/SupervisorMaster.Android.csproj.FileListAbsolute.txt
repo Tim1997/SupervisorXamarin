@@ -2017,3 +2017,4 @@ E:\GitClone\SupervisorXamarin\SupervisorMaster\SupervisorMaster.Android\obj\Debu
 E:\GitClone\SupervisorXamarin\SupervisorMaster\SupervisorMaster.Android\obj\Debug\110\stamp\_GeneratePackageManagerJava.stamp
 E:\GitClone\SupervisorXamarin\SupervisorMaster\SupervisorMaster.Android\obj\Debug\110\stamp\_ResolveLibraryProjectImports.stamp
 E:\GitClone\SupervisorXamarin\SupervisorMaster\SupervisorMaster.Android\obj\Debug\110\res\drawable\image.png
+D:\Github\Supervisor\SupervisorXamarin\SupervisorMaster\SupervisorMaster.Android\obj\Debug\110\res\drawable\image.png
