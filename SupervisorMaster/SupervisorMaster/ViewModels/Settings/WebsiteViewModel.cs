@@ -113,7 +113,7 @@ namespace SupervisorMaster.ViewModels.Settings
             var config = new MaterialInputDialogConfiguration()
             {
                 InputType = MaterialTextFieldInputType.Url,
-                BackgroundColor = Color.FromHex("#1b1b1b"),
+                BackgroundColor = Color.FromHex("#f2f2f2"),
             };
 
             var outer = await MaterialDialog.Instance.InputAsync(title: title,

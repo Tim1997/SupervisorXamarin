@@ -24,7 +24,7 @@
                 Command="{Binding PageAppearingCommand}" />
     </ContentPage.Behaviors>
     <ContentPage.Content>
-        <Grid>
+        <Grid BackgroundColor="#f2f2f2">
             <!--<Grid>
                 <ActivityIndicator  HorizontalOptions="Center" VerticalOptions="Center" Visual="Material"
                                IsRunning="True" Color="{StaticResource Yellow}" />
@@ -52,38 +52,38 @@
 
                 <StackLayout Grid.Row="2" Margin="20,0,20,0">
                     <material:MaterialTextField Placeholder="Email" Grid.Column="1" 
-                                            CardBackgroundColor="{StaticResource LightGray}" 
-                                            TextColor="White" FloatingPlaceholderColor="{StaticResource Yellow}" 
-                                            PlaceholderColor="White" IsEnabled="False"
+                                            CardBackgroundColor="Transparent" 
+                                            TextColor="Black" FloatingPlaceholderColor="{StaticResource Yellow}" 
+                                            PlaceholderColor="{StaticResource Yellow}" IsEnabled="False"
                                             Text="{Binding CurrentUser.Email}" InputType="Default"
                                             TintColor="{StaticResource Gray}"/>
                     <Grid ColumnDefinitions="*, *" >
                         <material:MaterialTextField Placeholder="First name" Grid.Column="0"
-                                                CardBackgroundColor="{StaticResource LightGray}" 
-                                                TextColor="White" FloatingPlaceholderColor="{StaticResource Yellow}" 
-                                                PlaceholderColor="White" 
+                                                CardBackgroundColor="Transparent" 
+                                                TextColor="Black" FloatingPlaceholderColor="{StaticResource Yellow}" 
+                                                PlaceholderColor="{StaticResource Yellow}" 
                                                 Text="{Binding CurrentUser.FirstName}" InputType="Default"
                                                 ErrorText="Value can not be empty" ErrorColor="OrangeRed" HasError="{Binding IsErrorFirstName}"
                                                 TintColor="{StaticResource Gray}"/>
                         <material:MaterialTextField Placeholder="Last name" Grid.Column="1"
-                                                CardBackgroundColor="{StaticResource LightGray}" 
-                                                TextColor="White" FloatingPlaceholderColor="{StaticResource Yellow}" 
-                                                PlaceholderColor="White"
+                                                CardBackgroundColor="Transparent" 
+                                                TextColor="Black" FloatingPlaceholderColor="{StaticResource Yellow}" 
+                                                PlaceholderColor="{StaticResource Yellow}"
                                                 Text="{Binding CurrentUser.LastName}" InputType="Default"
                                                 ErrorText="Value can not be empty" ErrorColor="OrangeRed" HasError="{Binding IsErrorLastName}"
                                                 TintColor="{StaticResource Gray}"/>
                     </Grid>
                     <material:MaterialTextField Placeholder="Display name" Grid.Column="1"
-                                                CardBackgroundColor="{StaticResource LightGray}" 
-                                                TextColor="White" FloatingPlaceholderColor="{StaticResource Yellow}" 
-                                                PlaceholderColor="White"
+                                                CardBackgroundColor="Transparent" 
+                                                TextColor="Black" FloatingPlaceholderColor="{StaticResource Yellow}" 
+                                                PlaceholderColor="{StaticResource Yellow}"
                                                 Text="{Binding CurrentUser.DisplayName}" InputType="Default"
                                                 ErrorText="Value can not be empty" ErrorColor="OrangeRed" HasError="{Binding IsErrorDisplayName}"
                                                 TintColor="{StaticResource Gray}"/>
                     <material:MaterialTextField Placeholder="Phone number" Grid.Column="1"
-                                            CardBackgroundColor="{StaticResource LightGray}" 
-                                            TextColor="White" FloatingPlaceholderColor="{StaticResource Yellow}" 
-                                            PlaceholderColor="White"
+                                            CardBackgroundColor="Transparent" 
+                                            TextColor="Black" FloatingPlaceholderColor="{StaticResource Yellow}" 
+                                            PlaceholderColor="{StaticResource Yellow}"
                                             ErrorText="Value can not be empty" ErrorColor="OrangeRed" HasError="{Binding IsErrorPhoneNumber}"
                                             Text="{Binding CurrentUser.PhoneNumber}" InputType="Numeric"
                                             TintColor="{StaticResource Gray}"/>
@@ -97,9 +97,9 @@
 
                 <Grid Grid.Row="4" Margin="20,0,20,0" ColumnDefinitions="*, auto">
                     <material:MaterialTextField Placeholder="Password" Grid.Column="0"
-                                            CardBackgroundColor="{StaticResource LightGray}" 
-                                            TextColor="White" FloatingPlaceholderColor="{StaticResource Yellow}" 
-                                            PlaceholderColor="White"
+                                            CardBackgroundColor="Transparent" 
+                                            TextColor="Black" FloatingPlaceholderColor="{StaticResource Yellow}" 
+                                            PlaceholderColor="{StaticResource Yellow}"
                                             Text="{Binding Password}" InputType="Password"
                                             TintColor="{StaticResource Gray}"/>
                     <material:MaterialIconButton Image="edit" CornerRadius="30" Grid.Column="1"

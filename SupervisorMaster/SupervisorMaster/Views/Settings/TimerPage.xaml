@@ -22,7 +22,7 @@
                 Command="{Binding PageAppearingCommand}" />
     </ContentPage.Behaviors>
     <Frame HorizontalOptions="FillAndExpand" VerticalOptions="Center"
-           BackgroundColor="{StaticResource Dialog}" CornerRadius="8"
+           BackgroundColor="{StaticResource BlackWhite}" CornerRadius="8"
            HasShadow="true" IsClippedToBounds="True" Margin="35,0">
         
         <Grid RowDefinitions="auto, *, auto, auto" x:Name="gMain">

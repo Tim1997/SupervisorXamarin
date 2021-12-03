@@ -156,7 +156,7 @@ namespace SupervisorMaster.ViewModels
             var config = new MaterialInputDialogConfiguration()
             {
                 InputType = MaterialTextFieldInputType.Email,
-                BackgroundColor = Color.FromHex("#1b1b1b"),
+                BackgroundColor = Color.FromHex("#f2f2f2"),
             };
 
             var outer = await MaterialDialog.Instance.InputAsync(title: title,
