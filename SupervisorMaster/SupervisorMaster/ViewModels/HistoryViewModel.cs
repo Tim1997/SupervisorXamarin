@@ -31,6 +31,19 @@ namespace SupervisorMaster.ViewModels
         {
             IsBusy = true;
         });
+
+        public ICommand RemoveCommand => new Command(async () =>
+        {
+            bool? wasOK = await MaterialDialog.Instance.ConfirmAsync("Do you want to remove all data?", "Warning");
+            if (wasOK == true)
+            {
+                await FirebaseDatabase
+                    .Child(User.LocalId)
+                    .Child("Historys").DeleteAsync();
+
+                Agendas?.Clear();
+            }
+        });
         #endregion
 
         public HistoryViewModel() : base("")

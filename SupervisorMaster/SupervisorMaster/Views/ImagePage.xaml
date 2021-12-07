@@ -82,9 +82,19 @@
                 <!--#endregion-->
 
                 <!--#region Title -->
-                <Label Grid.Row="1" FontFamily="MuliBlack" Text="TODAY SCREENSHOT" FontSize="20" 
-                       VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" TextColor="White"
+                <Grid Grid.Row="1">
+                    <Label  FontFamily="MuliBlack" Text="TODAY SREENSHOT" FontSize="20"
+                       VerticalTextAlignment="Center" HorizontalOptions="Start" TextColor="White"
                        Margin="20,20,20,0"/>
+                    <Label  FontFamily="MaterialIcons" Text="{Static icon:FontIcons.TrashCan}" FontSize="20"
+                       VerticalTextAlignment="Center" HorizontalOptions="End" TextColor="White"
+                       Margin="0,20,20,0">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Path=BindingContext.RemoveCommand, Source={x:Reference Name=gMain}}"
+                                              CommandParameter="{Binding .}" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </Grid>
                 <!--#endregion-->
 
                 <!--#region Classroom -->

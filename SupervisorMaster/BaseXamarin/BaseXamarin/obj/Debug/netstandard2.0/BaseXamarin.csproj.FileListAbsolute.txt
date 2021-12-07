@@ -63,4 +63,3 @@ E:\GitClone\SupervisorXamarin\SupervisorMaster\BaseXamarin\BaseXamarin\obj\Debug
 E:\GitClone\SupervisorXamarin\SupervisorMaster\BaseXamarin\BaseXamarin\obj\Debug\netstandard2.0\BaseXamarin.csproj.CoreCompileInputs.cache
 E:\GitClone\SupervisorXamarin\SupervisorMaster\BaseXamarin\BaseXamarin\obj\Debug\netstandard2.0\BaseXamarin.dll
 E:\GitClone\SupervisorXamarin\SupervisorMaster\BaseXamarin\BaseXamarin\obj\Debug\netstandard2.0\BaseXamarin.pdb
-D:\Github\Supervisor\SupervisorXamarin\SupervisorMaster\BaseXamarin\BaseXamarin\obj\Debug\netstandard2.0\BaseXamarin.csproj.AssemblyReference.cache

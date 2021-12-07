@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
+using XF.Material.Forms.UI.Dialogs;
 
 namespace SupervisorMaster.ViewModels
 {
@@ -30,6 +31,23 @@ namespace SupervisorMaster.ViewModels
         public ICommand PageAppearingCommand => new Command(async () =>
         {
             IsBusy = true;
+        });
+
+        public ICommand RemoveCommand => new Command(async () =>
+        {
+            bool? wasOK = await MaterialDialog.Instance.ConfirmAsync("Do you want to remove all data?", "Warning");
+            if (wasOK == true)
+            {
+                await FirebaseDatabase
+                    .Child(User.LocalId)
+                    .Child("Images").DeleteAsync();
+
+                await FirebaseStorage
+                    .Child(User.LocalId)
+                    .Child("Screenshots").DeleteAsync();
+
+                ImageViews?.Clear();
+            }
         });
 
         public ICommand ImageInfoCommand => new Command<ImageView>(async (imageview) =>
